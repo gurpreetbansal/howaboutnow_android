@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mainLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileCIV"
+            android:scaleType="centerCrop"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_centerHorizontal="true"
+            />
+
+    <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_alignEnd="@+id/profileCIV"
+            android:layout_alignBottom="@+id/profileCIV"
+            android:src="@drawable/ic_brightness_1_black_24dp" />
+
+
+    <com.how_about_now.app.custom_views.SfSemiBoldTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profileCIV"
+            android:drawablePadding="@dimen/_10sdp"
+            android:gravity="center_vertical|center"
+            android:padding="@dimen/_10sdp"
+            android:text="Maybell Dynes"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_12sdp" />
+
+
+</RelativeLayout>

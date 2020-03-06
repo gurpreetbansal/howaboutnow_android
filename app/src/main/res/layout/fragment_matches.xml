@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_color"
+        tools:context=".app.fragment.home_phase.FavouritesFragment">
+
+    <com.how_about_now.app.custom_views.SfSemiBoldTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:text="@string/matches"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_14sdp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/matchesRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/titleTV"
+            android:background="@color/view_color" />
+
+</RelativeLayout>

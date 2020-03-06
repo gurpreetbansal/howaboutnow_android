@@ -1,0 +1,50 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">HowAboutYou</string>
+
+    <string name="not_sufficient_permissions" tools:ignore="ExtraTranslation">Not sufficient permissions \n Goto Settings></string>
+    <string name="permissions">>Permissions</string>
+    <string name="only_people_you_have_matched_with_can_message_you">Only people you\'ve matched with can message you</string>
+    <string name="if_they_also_swipe">If they also Swipe  Right then It\'s a match</string>
+    <string name="swipe_right_to_like">Swipe Right to like someone or Swipe Left to pass</string>
+    <string name="descover_new_and_intersting">Discover new  and interesting people nearby</string>
+
+    <string-array name="drawer_title">
+        <item>Schedule</item>
+        <item>Agenda</item>
+        <item>Calendar</item>
+        <item>To Dos</item>
+        <item>Grades</item>
+        <item>Settings</item>
+        <item>Log Out</item>
+    </string-array>
+
+    <string name="forgotPass">Forgot your password?</string>
+    <string name="forgotPassDetail">Enter your email below to receive your\nPassword reset instructions.</string>
+    <string name="close"><u>Close</u></string>
+    <string name="sendPassword">Send Password</string>
+    <string name="email">Email</string>
+
+    <string name="filter">Filter</string>
+    <string name="language">Language</string>
+    <string name="notification">Notification</string>
+    <string name="upgrade_premium">Upgrade Premium</string>
+    <string name="invite_your_friends">Invite your Friends</string>
+    <string name="about">About</string>
+    <string name="help_center">Help Center</string>
+    <string name="feedback">Feedback</string>
+    <string name="rate_the_app">Rate the app</string>
+    <string name="logout">Logout</string>
+    <string name="Settings">Settings</string>
+    <string name="you_liked">You Liked</string>
+    <string name="liked_you">Liked You</string>
+    <string name="match">Match</string>
+    <string name="favourite">Favourite</string>
+    <string name="matches">Matches</string>
+    <string name="no_int_connection">NO Internet Connection here</string>
+    <string name="user_location_permission_explanation">user_location_permission_explanation</string>
+    <string name="user_location_permission_not_granted">user_location_permission_not_granted</string>
+    <string name="discover">Discover</string>
+
+    <string name="my_answers">My Answers</string>
+    <string name="profile">Profile</string>
+</resources>

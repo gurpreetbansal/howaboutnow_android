@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/white_color"
+        android:layout_height="match_parent"
+        tools:context=".app.fragment.home_phase.FavouritesFragment">
+
+    <com.how_about_now.app.custom_views.SfSemiBoldTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:text="@string/favourite"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_14sdp" />
+
+    <LinearLayout
+            android:id="@+id/mainLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTV"
+            android:weightSum="3">
+
+        <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                android:id="@+id/youLikedTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/text_selector"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/you_liked"
+                android:textAllCaps="true"
+                android:textColor="@color/black_color" />
+
+        <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                android:id="@+id/likedYouTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/liked_you"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_color" />
+
+        <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                android:id="@+id/matchTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/match"
+                android:textAllCaps="true"
+                android:textColor="@color/gray_color" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favouriteRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/mainLL"
+            android:background="@color/view_color" />
+
+</RelativeLayout>

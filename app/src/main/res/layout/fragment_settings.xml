@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <com.how_about_now.app.custom_views.SfSemiBoldTextView
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:text="@string/Settings"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_14sdp" />
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/view_color">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/view_color"
+                android:orientation="vertical"
+                tools:context=".app.fragment.home_phase.SettingsFragment">
+
+            <com.how_about_now.app.custom_views.SfRegulerTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white_color"
+                    android:drawableEnd="@drawable/next_shape"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/_15sdp"
+                    android:text="@string/filter"
+                    android:textColor="@color/black_color"
+                    android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white_color"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.how_about_now.app.custom_views.SfRegulerTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/languageNameTV"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@string/language"
+                            android:textColor="@color/black_color"
+                            android:textSize="@dimen/_12sdp" />
+
+                    <com.how_about_now.app.custom_views.SfRegulerTextView
+                            android:id="@+id/languageNameTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_toStartOf="@+id/languageIV"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_15sdp"
+                            android:text="English"
+                            android:textColor="@color/gray_color"
+                            android:textSize="@dimen/_12sdp" />
+
+                    <ImageView
+                            android:id="@+id/languageIV"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:src="@drawable/next_shape" />
+
+                </RelativeLayout>
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:drawableEnd="@drawable/next_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/notification"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <com.how_about_now.app.custom_views.SfRegulerTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/premiumTypeTV"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_15sdp"
+                            android:text="@string/upgrade_premium"
+                            android:textColor="@color/black_color"
+                            android:textSize="@dimen/_12sdp" />
+
+                    <com.how_about_now.app.custom_views.SfRegulerTextView
+                            android:id="@+id/premiumTypeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_toStartOf="@+id/premiumIV"
+                            android:gravity="center_vertical"
+                            android:padding="@dimen/_15sdp"
+                            android:text="Activate"
+                            android:textColor="@color/gray_color"
+                            android:textSize="@dimen/_12sdp" />
+
+                    <ImageView
+                            android:id="@+id/premiumIV"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:src="@drawable/next_shape" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white_color"
+                    android:orientation="vertical">
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:drawableEnd="@drawable/next_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/invite_your_friends"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:drawableEnd="@drawable/next_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/about"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:drawableEnd="@drawable/next_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/help_center"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:drawableEnd="@drawable/next_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/feedback"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:drawableEnd="@drawable/next_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_15sdp"
+                        android:text="@string/rate_the_app"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <com.how_about_now.app.custom_views.SfRegulerTextView
+                    android:id="@+id/logoutTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_30sdp"
+                    android:background="@color/white_color"
+                    android:gravity="center_vertical|center"
+                    android:padding="@dimen/_15sdp"
+                    android:text="@string/logout"
+                    android:textColor="@color/button_light_color"
+                    android:textSize="@dimen/_12sdp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_color"
+        tools:context=".app.activity.LoginSignUpActivity">
+
+    <com.how_about_now.app.custom_views.SfSemiBoldTextView
+            android:id="@+id/signUpBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/text_selector"
+            android:padding="@dimen/_10sdp"
+            android:text="Sign Up"
+            android:textAllCaps="true"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_14sdp" />
+
+    <com.how_about_now.app.custom_views.SfSemiBoldTextView
+            android:id="@+id/signInBT"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_toEndOf="@+id/signUpBT"
+            android:background="@color/white_color"
+            android:padding="@dimen/_10sdp"
+            android:text="Sign In"
+            android:textAllCaps="true"
+            android:textColor="@color/gray_color"
+            android:textSize="@dimen/_14sdp" />
+
+    <FrameLayout
+            android:id="@+id/login_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/signInBT" />
+
+</RelativeLayout>

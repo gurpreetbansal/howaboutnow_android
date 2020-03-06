@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".app.fragment.login_phase.LoginFragment">
+
+    <com.how_about_now.app.custom_views.SfTextInputLayout
+            android:id="@+id/fullNameTIL"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <com.how_about_now.app.custom_views.SfRegulerEditText
+                android:id="@+id/fullNameET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Full Name"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+    </com.how_about_now.app.custom_views.SfTextInputLayout>
+
+    <com.how_about_now.app.custom_views.SfTextInputLayout
+            android:id="@+id/EmailTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fullNameTIL"
+            android:layout_margin="@dimen/_10sdp">
+
+        <com.how_about_now.app.custom_views.SfRegulerEditText
+                android:id="@+id/emailET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+    </com.how_about_now.app.custom_views.SfTextInputLayout>
+
+    <com.how_about_now.app.custom_views.SfTextInputLayout
+            android:id="@+id/passwordTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EmailTIL"
+            android:layout_margin="@dimen/_10sdp">
+
+        <com.how_about_now.app.custom_views.SfRegulerEditText
+                android:id="@+id/passwordET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+    </com.how_about_now.app.custom_views.SfTextInputLayout>
+
+    <com.how_about_now.app.custom_views.SfTextInputLayout
+            android:id="@+id/confirmPasswordTIL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordTIL"
+            android:layout_margin="@dimen/_10sdp">
+
+        <com.how_about_now.app.custom_views.SfRegulerEditText
+                android:id="@+id/confirmPasswordET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+
+    </com.how_about_now.app.custom_views.SfTextInputLayout>
+
+
+    <com.how_about_now.app.custom_views.SfRegulerButton
+            android:id="@+id/signUpBT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/login_btn_color"
+            android:text="Sign Up"
+            android:textColor="@color/white_color" />
+
+
+</RelativeLayout>
