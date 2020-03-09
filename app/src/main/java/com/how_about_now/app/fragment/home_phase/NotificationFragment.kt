@@ -7,19 +7,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.how_about_now.app.R
 import com.how_about_now.app.fragment.BaseFragment
-import kotlinx.android.synthetic.main.fragment_settings.*
+import kotlinx.android.synthetic.main.fragment_notification.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class SettingsFragment : BaseFragment(), View.OnClickListener {
+class NotificationFragment : BaseFragment(), View.OnClickListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        return inflater.inflate(R.layout.fragment_notification, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,18 +28,15 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun init() {
-        logoutTV.setOnClickListener(this)
-        notificationTV.setOnClickListener(this)
+        backIV.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v) {
-            logoutTV -> {
-                baseActivity!!.gotoLoginSignupActivity()
+            backIV -> {
+                baseActivity!!.supportFragmentManager.popBackStack()
             }
-            notificationTV -> {
-                baseActivity!!.gotoFragment(NotificationFragment(), R.id.container)
-            }
+
         }
     }
 

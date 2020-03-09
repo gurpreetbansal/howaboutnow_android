@@ -14,4 +14,5 @@
     <color name="bg_shade_color">#FAFAFA</color>
     <color name="login_btn_color">#2DDDE3</color>
     <color name="red_color">#ED1B24</color>
+    <color name="green_color">#4BD963</color>
 </resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.home_phase.FilterFragment">
+
+    <com.how_about_now.app.utils.DiscreteSlider
+            android:id="@+id/discreteSlider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            app:ds_count="21"
+            app:ds_inactiveTrackColor="@color/gray_color"
+            app:ds_maxProgress="10"
+            app:ds_minProgress="5"
+            app:ds_mode="range"
+            app:ds_thumbColor="@color/button_light_color"
+            app:ds_thumbPressedColor="@color/gray_color"
+            app:ds_thumbRadius="@dimen/_2sdp"
+            app:ds_tickMarkColor="@color/gray_color"
+            app:ds_tickMarkDashLength="1dp"
+            app:ds_trackColor="@color/button_light_color"
+            app:ds_trackWidth="@dimen/_1sdp"
+            app:ds_valueLabelTextColor="@color/white_color"
+            app:ds_valueLabelTextSize="@dimen/_12sdp"
+            app:ds_valueLabelVisible="true" />
+
+</FrameLayout>

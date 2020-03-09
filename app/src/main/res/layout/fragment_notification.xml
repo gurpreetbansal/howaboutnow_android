@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/view_color"
+        android:orientation="vertical"
+        tools:context=".fragment.home_phase.NotificationFragment">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white_color">
+
+        <ImageView
+                android:id="@+id/backIV"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_back" />
+
+        <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/notifications"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+    </RelativeLayout>
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:gravity="center"
+            android:text="@string/keep_notifications_enable_to_be_alerted_about_what_s_going_on_in_your_profile"
+            android:textSize="@dimen/_12sdp" />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/offersTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/special_offers_promotions"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/offersSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+        <View
+                android:id="@+id/offerV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/offersSW"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/friendBirthdayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_it_s_a_friend_s_birthday"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/birthdaySW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+        <View
+                android:id="@+id/viewNotiV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/birthdaySW"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/purchaseNotificationTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_it_s_a_friend_s_birthday"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/purchaseSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/someOneLikeYouTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_someone_like_you"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/someOneLikeYouSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+        <View
+                android:id="@+id/someOneLikeYouV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/someOneLikeYouSW"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/someVisitYourProfileTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_someone_visit_your_profile"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/someVisitYourProfileSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+        <View
+                android:id="@+id/someVisitYourProfileYouV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/someVisitYourProfileSW"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/getNewMessageTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_you_get_a_new_message"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/getNewMessageSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+        <View
+                android:id="@+id/getNewMessageV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/getNewMessageSW"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/whenYouHaveNewMatchTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_you_have_a_new_match"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/whenYouHaveNewMatchSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+        <View
+                android:id="@+id/whenYouHaveNewMatchV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/whenYouHaveNewMatchSW"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:textColor="@color/black_color"
+                android:id="@+id/whenYouGetNewRecommendationTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/when_you_get_a_new_recommendation"
+                android:textSize="@dimen/_12sdp" />
+
+
+        <Switch
+                android:id="@+id/whenYouGetNewRecommendationSW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:thumb="@drawable/custome_switch_selector"
+                android:track="@drawable/custom__gray_track" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

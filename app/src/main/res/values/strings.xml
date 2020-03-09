@@ -47,4 +47,16 @@
 
     <string name="my_answers">My Answers</string>
     <string name="profile">Profile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notifications">Notifications</string>
+    <string name="special_offers_promotions"><![CDATA[Special offers & Promotions]]></string>
+    <string name="when_it_s_a_friend_s_birthday">When it\'s a friend\'s birthday</string>
+    <string name="when_someone_like_you">When someone like you</string>
+    <string name="when_someone_visit_your_profile">When someone visit your profile</string>
+    <string name="when_you_get_a_new_message">When you get a new message</string>
+    <string name="when_you_have_a_new_match">When you have a new match</string>
+    <string name="when_you_get_a_new_recommendation">When you get a new recommendation</string>
+    <string name="keep_notifications_enable_to_be_alerted_about_what_s_going_on_in_your_profile">Keep notifications enable to be alerted about what\'s going on in your profile.</string>
 </resources>
