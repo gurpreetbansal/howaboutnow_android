@@ -59,4 +59,8 @@
     <string name="when_you_have_a_new_match">When you have a new match</string>
     <string name="when_you_get_a_new_recommendation">When you get a new recommendation</string>
     <string name="keep_notifications_enable_to_be_alerted_about_what_s_going_on_in_your_profile">Keep notifications enable to be alerted about what\'s going on in your profile.</string>
+    <string name="filters">Filters</string>
+    <string name="make_a_new_friends">Make a new friends</string>
+    <string name="message">Message</string>
+    <string name="near_by">Nearby</string>
 </resources>

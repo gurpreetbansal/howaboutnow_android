@@ -14,10 +14,7 @@ import com.how_about_now.app.R
 import com.how_about_now.app.adapter.DrawerAdapter
 import com.how_about_now.app.data.DrawerData
 import com.how_about_now.app.fragment.card_stack.DiscoverFragment
-import com.how_about_now.app.fragment.home_phase.FavouritesFragment
-import com.how_about_now.app.fragment.home_phase.MatchesFragment
-import com.how_about_now.app.fragment.home_phase.ProfileFragment
-import com.how_about_now.app.fragment.home_phase.SettingsFragment
+import com.how_about_now.app.fragment.home_phase.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.custom_toolbar.*
 import java.util.*
@@ -281,10 +278,12 @@ class MainActivity : BaseActivity(), View.OnClickListener, DrawerAdapter.DrawerC
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_discover -> {
-                gotoFragment(DiscoverFragment(), R.id.container)
+//                gotoFragment(DiscoverFragment(), R.id.container)
+                gotoFragment(NearByFragment(), R.id.container)
             }
             R.id.action_profile -> {
-                gotoFragment(ProfileFragment(), R.id.container)
+                gotoFragment(ProfileDetailFragment(), R.id.container)
+//                gotoFragment(ProfileFragment(), R.id.container)
             }
             R.id.action_settings -> {
                 gotoFragment(SettingsFragment(), R.id.container)

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white_color">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_230sdp"
+                android:background="@color/gray_color"
+                android:scaleType="centerCrop" />
+
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/item_image"
+                android:layout_alignTop="@+id/item_image"
+                android:layout_margin="@dimen/_10sdp"
+                android:drawableStart="@drawable/camera_shape"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/_5sdp"
+                android:text="12"
+                android:textSize="@dimen/_12sdp" />
+
+        <LinearLayout
+                android:id="@+id/button_container"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignBottom="@+id/item_image"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="8dp"
+                android:clipChildren="false"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/skip_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:src="@drawable/ic_clear_green"
+                    app:backgroundTint="@android:color/white"
+                    app:fabSize="auto"
+                    app:rippleColor="#22ED7563" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/rewind_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/rewind_blue_24dp"
+                    android:visibility="gone"
+                    app:backgroundTint="@android:color/white"
+                    app:fabSize="mini"
+                    app:rippleColor="#225BC9FA" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/like_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:src="@drawable/ic_favorite_green"
+                    app:backgroundTint="@android:color/white"
+                    app:fabSize="auto"
+                    app:rippleColor="#226FE2B3" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:id="@+id/cardDetailRL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_image"
+                android:layout_gravity="bottom"
+                android:background="@color/white_color"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <com.how_about_now.app.custom_views.SfBoldTextView
+                    android:id="@+id/item_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/item_matchesTV"
+                    android:text="Bridget,Janusz.22"
+                    android:textColor="@color/black_color"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            <com.how_about_now.app.custom_views.SfRegulerTextView
+                    android:id="@+id/item_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/item_name"
+                    android:text="Seattle, US"
+                    android:textColor="@color/gray_color"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            <com.how_about_now.app.custom_views.SfRegulerTextView
+                    android:id="@+id/item_matchesTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/bg_selector"
+                    android:gravity="center"
+                    android:padding="@dimen/_3sdp"
+                    android:text="MATCH \n 80%"
+                    android:textColor="@color/white_color"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <View
+                android:id="@+id/viewV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/cardDetailRL"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/giftTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewV"
+                android:padding="@dimen/_10sdp"
+                android:text="GIFTS"
+                android:textColor="@color/button_light_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/giftsRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/giftTV"
+                android:padding="@dimen/_10sdp"
+                android:scrollbars="none" />
+
+        <View
+                android:id="@+id/giftsV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/giftsRV"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/interestTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/giftsV"
+                android:padding="@dimen/_10sdp"
+                android:text="INTEREST"
+                android:textColor="@color/button_light_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/interestRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/interestTV"
+                android:padding="@dimen/_10sdp"
+                android:scrollbars="none" />
+
+        <View
+                android:id="@+id/interestV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/interestRV"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/moviesTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/interestV"
+                android:padding="@dimen/_10sdp"
+                android:text="MOVIES"
+                android:textColor="@color/button_light_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/moviesRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/moviesTV"
+                android:padding="@dimen/_10sdp"
+                android:scrollbars="none" />
+
+        <View
+                android:id="@+id/moviesV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/moviesRV"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/musicTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/moviesV"
+                android:padding="@dimen/_10sdp"
+                android:text="MUSIC"
+                android:textColor="@color/button_light_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/musicRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/musicTV"
+                android:padding="@dimen/_10sdp"
+                android:scrollbars="none" />
+
+        <View
+                android:id="@+id/musicV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/musicRV"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/televisionTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/musicV"
+                android:padding="@dimen/_10sdp"
+                android:text="TELEVISION"
+                android:textColor="@color/button_light_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/televisionRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/televisionTV"
+                android:padding="@dimen/_10sdp"
+                android:scrollbars="none" />
+
+        <View
+                android:id="@+id/televisionV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/televisionRV"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/view_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/booksTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/televisionV"
+                android:padding="@dimen/_10sdp"
+                android:text="BOOKS"
+                android:textColor="@color/button_light_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/booksRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/booksTV"
+                android:padding="@dimen/_10sdp"
+                android:scrollbars="none" />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/booksRV"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:background="@drawable/report_selector">
+
+            <com.how_about_now.app.custom_views.SfRegulerTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:drawableStart="@drawable/report_shape"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:text="REPORT BRIDGET JANUSZ"
+                    android:textColor="@color/black_color" />
+        </RelativeLayout>
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

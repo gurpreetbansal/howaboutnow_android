@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mainLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileCIV"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@color/gray_color" />
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/timeTV"
+            android:layout_toEndOf="@+id/profileCIV"
+            android:padding="@dimen/_10sdp"
+            android:text="Elayne Seigler"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_12sdp" />
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:id="@+id/timeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/_10sdp"
+            android:text="11:04 AM" />
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:id="@+id/descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/profileCIV"
+            android:layout_below="@+id/titleTV"
+            android:padding="@dimen/_10sdp"
+            android:text="I believe i have a very good chance."
+            android:textSize="@dimen/_12sdp" />
+</RelativeLayout>

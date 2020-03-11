@@ -1,33 +1,385 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.home_phase.FilterFragment">
+        android:background="@color/white_color"
+        android:orientation="vertical">
 
-    <com.how_about_now.app.utils.DiscreteSlider
-            android:id="@+id/discreteSlider"
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white_color">
+
+        <ImageView
+                android:id="@+id/backIV"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_back" />
+
+        <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/filters"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+    </RelativeLayout>
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:paddingStart="@dimen/_12sdp"
-            android:paddingEnd="@dimen/_12sdp"
-            app:ds_count="21"
-            app:ds_inactiveTrackColor="@color/gray_color"
-            app:ds_maxProgress="10"
-            app:ds_minProgress="5"
-            app:ds_mode="range"
-            app:ds_thumbColor="@color/button_light_color"
-            app:ds_thumbPressedColor="@color/gray_color"
-            app:ds_thumbRadius="@dimen/_2sdp"
-            app:ds_tickMarkColor="@color/gray_color"
-            app:ds_tickMarkDashLength="1dp"
-            app:ds_trackColor="@color/button_light_color"
-            app:ds_trackWidth="@dimen/_1sdp"
-            app:ds_valueLabelTextColor="@color/white_color"
-            app:ds_valueLabelTextSize="@dimen/_12sdp"
-            app:ds_valueLabelVisible="true" />
+            android:background="@color/view_color"
+            android:gravity="start"
+            android:padding="@dimen/_10sdp"
+            android:text="I'M HERE TO"
+            android:textSize="@dimen/_12sdp" />
 
-</FrameLayout>
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color"
+            android:drawableEnd="@drawable/next_shape"
+            android:drawablePadding="@dimen/_10sdp"
+            android:gravity="start"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/make_a_new_friends"
+            android:textColor="@color/black_color"
+            android:textSize="@dimen/_12sdp" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/view_color" />
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color"
+            android:gravity="start"
+            android:padding="@dimen/_10sdp"
+            android:text="WITH WHO?"
+            android:textSize="@dimen/_12sdp" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/view_color" />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/genderTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:text="Gender"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/genderOptionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableEnd="@drawable/next_shape"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="Female"
+                android:textSize="@dimen/_12sdp" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/genderTV"
+                android:background="@color/view_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/ageTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:text="Age"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/ageYearTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="18-30 yr"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.utils.DiscreteSlider
+                android:id="@+id/ageDS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ageTV"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                app:ds_count="100"
+                app:ds_inactiveTrackColor="@color/gray_color"
+                app:ds_maxProgress="10"
+                app:ds_minProgress="0"
+                app:ds_mode="range"
+                app:ds_thumbColor="@color/button_light_color"
+                app:ds_thumbPressedColor="@color/gray_color"
+                app:ds_thumbRadius="@dimen/_2sdp"
+                app:ds_tickMarkColor="@color/gray_color"
+                app:ds_tickMarkDashLength="1dp"
+                app:ds_trackColor="@color/button_light_color"
+                app:ds_trackWidth="@dimen/_1sdp"
+                app:ds_valueLabelTextColor="@color/white_color"
+                app:ds_valueLabelTextSize="@dimen/_12sdp"
+                app:ds_valueLabelVisible="true" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/ageDS"
+                android:background="@color/view_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/heightTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:text="Height"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/heightCalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="150-180 cm"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.utils.DiscreteSlider
+                android:id="@+id/heightDS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/heightTV"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                app:ds_count="100"
+                app:ds_inactiveTrackColor="@color/gray_color"
+                app:ds_maxProgress="5"
+                app:ds_minProgress="0"
+                app:ds_mode="range"
+                app:ds_thumbColor="@color/button_light_color"
+                app:ds_thumbPressedColor="@color/gray_color"
+                app:ds_thumbRadius="@dimen/_2sdp"
+                app:ds_tickMarkColor="@color/gray_color"
+                app:ds_tickMarkDashLength="1dp"
+                app:ds_trackColor="@color/button_light_color"
+                app:ds_trackWidth="@dimen/_1sdp"
+                app:ds_valueLabelTextColor="@color/white_color"
+                app:ds_valueLabelTextSize="@dimen/_12sdp"
+                app:ds_valueLabelVisible="true" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/heightDS"
+                android:background="@color/view_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/interestTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:text="Interest"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/interestTypeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableEnd="@drawable/next_shape"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="Music,Movie,book..."
+                android:textSize="@dimen/_12sdp" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/interestTV"
+                android:background="@color/view_color" />
+    </RelativeLayout>
+
+    <com.how_about_now.app.custom_views.SfRegulerTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color"
+            android:gravity="start"
+            android:padding="@dimen/_10sdp"
+            android:text="WHERE?"
+            android:textSize="@dimen/_12sdp" />
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/view_color" />
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/locationTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:text="Location"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/locationSetTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableEnd="@drawable/next_shape"
+                android:drawablePadding="@dimen/_10sdp"
+                android:text="Seattle,US"
+                android:textSize="@dimen/_12sdp" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/locationTV"
+                android:background="@color/view_color" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/distanceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/_10sdp"
+                android:text="Distance"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/distanceCalTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="20 km"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.utils.DiscreteSlider
+                android:id="@+id/distanceDS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/distanceTV"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="@dimen/_12sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                app:ds_count="100"
+                app:ds_inactiveTrackColor="@color/gray_color"
+                app:ds_maxProgress="5"
+                app:ds_minProgress="0"
+                app:ds_mode="normal"
+                app:ds_thumbColor="@color/button_light_color"
+                app:ds_thumbPressedColor="@color/gray_color"
+                app:ds_thumbRadius="@dimen/_2sdp"
+                app:ds_tickMarkColor="@color/gray_color"
+                app:ds_tickMarkDashLength="1dp"
+                app:ds_trackColor="@color/button_light_color"
+                app:ds_trackWidth="@dimen/_1sdp"
+                app:ds_valueLabelTextColor="@color/white_color"
+                app:ds_valueLabelTextSize="@dimen/_12sdp"
+                app:ds_valueLabelVisible="true" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@+id/distanceDS"
+                android:background="@color/view_color" />
+    </RelativeLayout>
+
+    <!--    <com.how_about_now.app.utils.DiscreteSlider-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_below="@+id/genderTV"-->
+    <!--            android:clickable="true"-->
+    <!--            android:focusable="true"-->
+    <!--            android:paddingStart="@dimen/_12sdp"-->
+    <!--            android:paddingEnd="@dimen/_12sdp"-->
+    <!--            app:ds_count="21"-->
+    <!--            app:ds_inactiveTrackColor="@color/gray_color"-->
+    <!--            app:ds_maxProgress="100"-->
+    <!--            app:ds_minProgress="10"-->
+    <!--            app:ds_mode="normal"-->
+    <!--            app:ds_thumbColor="@color/button_light_color"-->
+    <!--            app:ds_thumbPressedColor="@color/gray_color"-->
+    <!--            app:ds_thumbRadius="@dimen/_2sdp"-->
+    <!--            app:ds_tickMarkColor="@color/gray_color"-->
+    <!--            app:ds_tickMarkDashLength="1dp"-->
+    <!--            app:ds_trackColor="@color/button_light_color"-->
+    <!--            app:ds_trackWidth="@dimen/_1sdp"-->
+    <!--            app:ds_valueLabelTextColor="@color/white_color"-->
+    <!--            app:ds_valueLabelTextSize="@dimen/_12sdp"-->
+    <!--            app:ds_valueLabelVisible="true" />-->
+    <!--    -->
+
+</LinearLayout>
