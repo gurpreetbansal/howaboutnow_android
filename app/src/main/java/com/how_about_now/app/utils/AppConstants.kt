@@ -31,6 +31,7 @@ object AppConstants {
     val API_STATUS_CODE_LOCAL_ERROR = 0
 
     val TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss"
+    val AUTH_TOKEN = "auth_token"
 
     val REQUEST_CODE = 99
     val STATUS_OK = 200

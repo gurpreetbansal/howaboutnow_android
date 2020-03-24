@@ -13,7 +13,19 @@ import com.how_about_now.app.utils.PermissionsListener
 import com.how_about_now.app.utils.PermissionsManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.how_about_now.app.data.login_phase.LoginEntity
+import com.how_about_now.app.data.login_phase.SignUpEntity
+import com.how_about_now.app.data.login_phase.SignUpWrapper
+import com.how_about_now.app.retrofit.ApiInterface
+import com.how_about_now.app.retrofit.ServiceGenerator
+import com.how_about_now.app.utils.AppConstants
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.emailET
+import kotlinx.android.synthetic.main.fragment_login.passwordET
+import kotlinx.android.synthetic.main.fragment_sign_up.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
@@ -90,5 +102,52 @@ class LoginFragment : BaseFragment(), View.OnClickListener , PermissionsListener
 
             baseActivity?.finish()
         }
+    }
+
+    private fun hitRegisterApi() {
+
+        var name=fullNameET.text.toString().trim()
+        var email=emailET.text.toString().trim()
+        var password=passwordET.text.toString().trim()
+        baseActivity?.showLoading()
+        baseActivity?.hideSoftKeyBoard()
+        if (baseActivity?.isNetworkConnected()!!) {
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "", "")
+            val call = apiInterface.loginApi(
+                LoginEntity("Android",baseActivity?.getDeviceUniqueID()!!,email,
+                    lat!!,longi!!,password
+                )
+            )
+            call.enqueue(object : Callback<SignUpWrapper> {
+                override fun onResponse(
+                    call: Call<SignUpWrapper>?,
+                    response: Response<SignUpWrapper>?
+                ) {
+                    baseActivity?.hideLoading()
+
+                    var signUpWrapper = response?.body()
+
+                    if (signUpWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
+                        baseActivity?.store?.saveString(
+                            AppConstants.AUTH_TOKEN,
+                            signUpWrapper!!.msg[0].device_token
+                        )
+                        baseActivity?.saveProfileData(signUpWrapper!!.msg[0])
+                        baseActivity?.gotoMainActivity()
+                    } else {
+//                        baseActivity?.showMessage(signUpWrapper!!.message)
+                    }
+                }
+
+                override fun onFailure(call: Call<SignUpWrapper>?, t: Throwable?) {
+                    baseActivity?.hideLoading()
+                    baseActivity?.showMessage(t!!.localizedMessage)
+                }
+            })
+        } else {
+            baseActivity?.hideLoading()
+            baseActivity?.showMessage(getString(R.string.no_int_connection))
+        }
+
     }
 }

@@ -6,14 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.how_about_now.app.R
+import com.how_about_now.app.data.login_phase.SignUpEntity
+import com.how_about_now.app.data.login_phase.SignUpWrapper
 import com.how_about_now.app.fragment.BaseFragment
+import com.how_about_now.app.retrofit.ApiInterface
+import com.how_about_now.app.retrofit.ServiceGenerator
+import com.how_about_now.app.utils.AppConstants
 import com.how_about_now.app.utils.PermissionCallBack
 import com.how_about_now.app.utils.PermissionsListener
 import com.how_about_now.app.utils.PermissionsManager
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_sign_up.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
@@ -75,43 +83,50 @@ class SignUpFragment : BaseFragment(), View.OnClickListener, PermissionsListener
 
     private fun hitRegisterApi() {
 
-//        var name=fullNameET.text.toString().trim()
-//        var email=emailET.text.toString().trim()
-//        var password=passwordET.text.toString().trim()
-//        baseActivity?.showLoading()
-//        baseActivity?.hideSoftKeyBoard()
-//        if (baseActivity?.isNetworkConnected()!!) {
-//            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "", "")
-//            val call = apiInterface.registerApi(
-//                SignUpEntity(
-//
-//                )
-//            )
-//            call.enqueue(object : Callback<SignUpWrapper> {
-//                override fun onResponse(
-//                    call: Call<SignUpWrapper>?,
-//                    response: Response<SignUpWrapper>?
-//                ) {
-//                    baseActivity?.hideLoading()
-//
-//                    var signUpWrapper = response?.body()
-//
-//                    if (signUpWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
-//
-//                    } else {
-////                        baseActivity?.showMessage(signUpWrapper!!.message)
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<SignUpWrapper>?, t: Throwable?) {
-//                    baseActivity?.hideLoading()
-//                    baseActivity?.showMessage(t!!.localizedMessage)
-//                }
-//            })
-//        } else {
-//            baseActivity?.hideLoading()
-//            baseActivity?.showMessage(getString(R.string.no_int_connection))
-//        }
+        var name = fullNameET.text.toString().trim()
+        var email = emailET.text.toString().trim()
+        var password = passwordET.text.toString().trim()
+        baseActivity?.showLoading()
+        baseActivity?.hideSoftKeyBoard()
+        if (baseActivity?.isNetworkConnected()!!) {
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "", "")
+            val call = apiInterface.registerApi(
+                SignUpEntity(
+                    "Android", baseActivity?.getDeviceUniqueID()!!, email, name, "",
+                    lat!!, longi!!, password
+
+                )
+            )
+            call.enqueue(object : Callback<SignUpWrapper> {
+                override fun onResponse(
+                    call: Call<SignUpWrapper>?,
+                    response: Response<SignUpWrapper>?
+                ) {
+                    baseActivity?.hideLoading()
+
+                    var signUpWrapper = response?.body()
+
+                    if (signUpWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
+                        baseActivity?.store?.saveString(
+                            AppConstants.AUTH_TOKEN,
+                            signUpWrapper!!.msg[0].device_token
+                        )
+                        baseActivity?.saveProfileData(signUpWrapper!!.msg[0])
+                        baseActivity?.gotoMainActivity()
+                    } else {
+//                        baseActivity?.showMessage(signUpWrapper!!.message)
+                    }
+                }
+
+                override fun onFailure(call: Call<SignUpWrapper>?, t: Throwable?) {
+                    baseActivity?.hideLoading()
+                    baseActivity?.showMessage(t!!.localizedMessage)
+                }
+            })
+        } else {
+            baseActivity?.hideLoading()
+            baseActivity?.showMessage(getString(R.string.no_int_connection))
+        }
 
     }
 

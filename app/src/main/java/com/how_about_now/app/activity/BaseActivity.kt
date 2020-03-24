@@ -15,10 +15,8 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.how_about_now.app.utils.CommonUtils
-import com.how_about_now.app.utils.NetworkUtils
-import com.how_about_now.app.utils.PermissionCallBack
-import com.how_about_now.app.utils.SnackBarManager
+import com.how_about_now.app.data.login_phase.Msg
+import com.how_about_now.app.utils.*
 
 /**
  *A simple [Activity] created by Anuj Kamboj.
@@ -27,9 +25,11 @@ import com.how_about_now.app.utils.SnackBarManager
 
 open class BaseActivity : AppCompatActivity() {
     var exit = false
+    lateinit var store: PrefStore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        store = PrefStore(this)
 
     }
 
@@ -163,5 +163,14 @@ open class BaseActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         PermissionCallBack.getInstance(this)
             .onPermissionListener(requestCode, permissions, grantResults)
+    }
+
+    fun saveProfileData(authData: Msg): Msg {
+        store.save("authData", authData)
+        return authData
+    }
+
+    fun getProfileData(): Msg {
+        return store.getObject("authData", Msg::class.java)!!
     }
 }

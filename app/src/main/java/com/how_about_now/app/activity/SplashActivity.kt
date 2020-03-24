@@ -6,6 +6,7 @@ import android.os.Handler
 import androidx.databinding.DataBindingUtil
 import com.how_about_now.app.R
 import com.how_about_now.app.databinding.ActivitySplashBinding
+import com.how_about_now.app.utils.AppConstants
 
 class SplashActivity : BaseActivity() {
     private lateinit var activitySplashBinding: ActivitySplashBinding
@@ -26,7 +27,12 @@ class SplashActivity : BaseActivity() {
 
     private fun init() {
         Handler().postDelayed({
-            startActivity(Intent(this, WelcomeActivity::class.java))
+            if (store != null && store.getString(AppConstants.AUTH_TOKEN) != null && !store.getString(
+                    AppConstants.AUTH_TOKEN
+                )!!.isEmpty()
+            ) {
+                startActivity(Intent(this, MainActivity::class.java))
+            } else startActivity(Intent(this, WelcomeActivity::class.java))
             finish()
         }, SPLASH_TIME_OUT.toLong())
 
