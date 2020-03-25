@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cameraLL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextureView
+            android:id="@+id/view_finder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <ImageButton
+            android:id="@+id/imgCapture"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignBottom="@+id/view_finder"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_20sdp"
+            android:src="@android:drawable/ic_menu_camera" />
+
+    <RelativeLayout
+            android:id="@+id/selectImageRL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+        <ImageView
+                android:id="@+id/imageIV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/cancelTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageIV"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/button_round_unselect"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/cancel"
+                android:textColor="@color/black_color" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/selectTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageIV"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_20sdp"
+                android:background="@drawable/button_round_background"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="@string/select"
+                android:textColor="@color/black_color" />
+    </RelativeLayout>
+</RelativeLayout>
+

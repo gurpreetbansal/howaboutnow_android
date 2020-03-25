@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 object ServiceGenerator {
     // public static final String API_BASE_URL = "http://1bfbbf76.ngrok.io/dev/thriftshopper/api/";
     // http://68.183.74.38:8008/thriftshopper/
-    val API_BASE_URL = "https://clientstagingdev.com/how_about_now/API/index.php?p="
+    val API_BASE_URL = "https://clientstagingdev.com/how_about_now/API/"
     private val httpClient = OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS).writeTimeout(60, TimeUnit.SECONDS)
@@ -24,19 +24,18 @@ object ServiceGenerator {
     private val builder = Retrofit.Builder().baseUrl(API_BASE_URL).addConverterFactory(GsonConverterFactory.create())
 
     fun <S> createService(serviceClass: Class<S>): S {
-        return createService(serviceClass, null, null)
+        return createService(serviceClass, null)
 
     }
 
-    fun <S> createService(serviceClass: Class<S>, authToken: String?, userId: String?): S {
+    fun <S> createService(serviceClass: Class<S>, authToken: String?): S {
         if (authToken != null) {
             httpClient.interceptors().add(Interceptor { chain ->
                 val original = chain.request()
 
                 // Request customization: add request headers
                 val requestBuilder = original.newBuilder()
-                    .header("AuthorizationToken", authToken)
-                    .header("userId", userId!!)
+                    .header("Authorization", authToken)
                     .method(original.method(), original.body())
 
                 val request = requestBuilder.build()

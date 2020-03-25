@@ -63,4 +63,7 @@
     <string name="make_a_new_friends">Make a new friends</string>
     <string name="message">Message</string>
     <string name="near_by">Nearby</string>
+    <string name="please_enter_your_email">Please enter your email</string>
+    <string name="cancel">Cancel</string>
+    <string name="select">Select</string>
 </resources>

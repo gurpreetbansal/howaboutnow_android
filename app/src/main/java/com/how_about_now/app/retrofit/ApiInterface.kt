@@ -1,18 +1,22 @@
 package com.how_about_now.app.retrofit
 
-import com.how_about_now.app.data.login_phase.LoginEntity
-import com.how_about_now.app.data.login_phase.SignUpEntity
-import com.how_about_now.app.data.login_phase.SignUpWrapper
+import com.how_about_now.app.data.login_phase.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 
 interface ApiInterface {
-    @POST("signup")
+    @POST("index.php?p=signup")
     fun registerApi(@Body registerEntity: SignUpEntity): Call<SignUpWrapper>
-    @POST("login")
+
+    @POST("index.php?p=login")
     fun loginApi(@Body registerEntity: LoginEntity): Call<SignUpWrapper>
+
+    @POST("index.php?p=forgot_password")
+    fun forgotPasswordApi(@Body forgotPasswordEntity: ForgotPasswordEntity): Call<ForgotPasswordWrapper>
+
+
 //
 //    @POST("user/login")
 //    fun loginApi(@Body loginEntity: LoginEntity): Call<SignUpWrapper>

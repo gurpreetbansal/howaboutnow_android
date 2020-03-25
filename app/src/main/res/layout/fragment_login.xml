@@ -7,26 +7,33 @@
 
     <com.how_about_now.app.custom_views.SfTextInputLayout
             android:id="@+id/emailTIL"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp">
 
         <com.how_about_now.app.custom_views.SfRegulerEditText
                 android:id="@+id/emailET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/clear_shape"
-                android:drawablePadding="@dimen/_10sdp"
                 android:hint="Email"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
                 android:singleLine="true" />
 
     </com.how_about_now.app.custom_views.SfTextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/emailCancelIV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_alignTop="@+id/emailTIL"
+            android:layout_alignEnd="@+id/emailTIL"
+            android:layout_alignBottom="@+id/emailTIL"
+            android:src="@drawable/ic_clear" />
 
     <com.how_about_now.app.custom_views.SfTextInputLayout
             android:id="@+id/passwordTIL"
@@ -39,15 +46,21 @@
                 android:id="@+id/passwordET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/clear_shape"
-                android:drawablePadding="@dimen/_10sdp"
                 android:hint="Password"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
                 android:singleLine="true" />
 
     </com.how_about_now.app.custom_views.SfTextInputLayout>
-
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/passCancelIV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_alignTop="@+id/passwordTIL"
+            android:layout_alignEnd="@+id/passwordTIL"
+            android:layout_alignBottom="@+id/passwordTIL"
+            android:src="@drawable/ic_clear" />
     <com.how_about_now.app.custom_views.SfRegulerTextView
             android:id="@+id/forgotPasswordTV"
             android:layout_width="match_parent"

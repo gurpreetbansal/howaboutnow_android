@@ -282,7 +282,8 @@ class MainActivity : BaseActivity(), View.OnClickListener, DrawerAdapter.DrawerC
                 gotoFragment(NearByFragment(), R.id.container)
             }
             R.id.action_profile -> {
-                gotoFragment(ProfileDetailFragment(), R.id.container)
+                gotoFragment(EditProfileFragment(), R.id.container)
+//                gotoFragment(ProfileDetailFragment(), R.id.container)
 //                gotoFragment(ProfileFragment(), R.id.container)
             }
             R.id.action_settings -> {

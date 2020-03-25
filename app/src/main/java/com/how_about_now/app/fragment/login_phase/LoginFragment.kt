@@ -6,23 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.how_about_now.app.R
-import com.how_about_now.app.fragment.BaseFragment
-import com.how_about_now.app.utils.PermissionCallBack
-import com.how_about_now.app.utils.PermissionsListener
-import com.how_about_now.app.utils.PermissionsManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.how_about_now.app.R
 import com.how_about_now.app.data.login_phase.LoginEntity
-import com.how_about_now.app.data.login_phase.SignUpEntity
 import com.how_about_now.app.data.login_phase.SignUpWrapper
+import com.how_about_now.app.fragment.BaseFragment
 import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
 import com.how_about_now.app.utils.AppConstants
+import com.how_about_now.app.utils.PermissionCallBack
+import com.how_about_now.app.utils.PermissionsListener
+import com.how_about_now.app.utils.PermissionsManager
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_login.emailET
 import kotlinx.android.synthetic.main.fragment_login.passwordET
-import kotlinx.android.synthetic.main.fragment_sign_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,7 +28,7 @@ import retrofit2.Response
 /**
  * A simple [Fragment] subclass.
  */
-class LoginFragment : BaseFragment(), View.OnClickListener , PermissionsListener,
+class LoginFragment : BaseFragment(), View.OnClickListener, PermissionsListener,
     PermissionCallBack.PermissionListener {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var permissionsManager: PermissionsManager = PermissionsManager(this)
@@ -53,6 +51,8 @@ class LoginFragment : BaseFragment(), View.OnClickListener , PermissionsListener
     private fun init() {
         signInBT.setOnClickListener(this)
         forgotPasswordTV.setOnClickListener(this)
+        passCancelIV.setOnClickListener(this)
+        emailCancelIV.setOnClickListener(this)
 
         if (PermissionsManager.areLocationPermissionsGranted(baseActivity)) {
             getCurrentLocation()
@@ -62,6 +62,7 @@ class LoginFragment : BaseFragment(), View.OnClickListener , PermissionsListener
         }
         PermissionCallBack.getInstance(baseActivity!!).setButtonListener(this)
     }
+
     private fun getCurrentLocation() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(baseActivity!!)
         fusedLocationClient.lastLocation
@@ -70,17 +71,37 @@ class LoginFragment : BaseFragment(), View.OnClickListener , PermissionsListener
                 longi = location?.longitude.toString()
             }
     }
+
     override fun onClick(v: View?) {
         when (v) {
             signInBT -> {
-                baseActivity!!.gotoMainActivity()
+                if (isValidParms())
+                    hitLoginApi()
             }
             forgotPasswordTV -> {
                 var checkOutDialog = ForgotPasswordFragment()
                 checkOutDialog.show(baseActivity!!.supportFragmentManager, "")
             }
+            emailCancelIV -> {
+                emailET.setText("")
+            }
+            passCancelIV -> {
+                passwordET.setText("")
+            }
         }
     }
+
+    private fun isValidParms(): Boolean {
+        if (baseActivity?.isEmptyCheck(emailET)!!) {
+            baseActivity?.showMessage("Please enter your email")
+        } else if (!baseActivity?.isValidEmail(baseActivity?.getTextValue(emailET)!!)!!) {
+            baseActivity?.showMessage("Please enter valid email")
+        } else if (baseActivity?.isEmptyCheck(passwordET)!!) {
+            baseActivity?.showMessage("Please enter your password")
+        } else return true
+        return false
+    }
+
     override fun onPermissionCallBack(
         requestCode: Int,
         permissions: Array<out String>,
@@ -104,18 +125,17 @@ class LoginFragment : BaseFragment(), View.OnClickListener , PermissionsListener
         }
     }
 
-    private fun hitRegisterApi() {
-
-        var name=fullNameET.text.toString().trim()
-        var email=emailET.text.toString().trim()
-        var password=passwordET.text.toString().trim()
+    private fun hitLoginApi() {
+        var email = emailET.text.toString().trim()
+        var password = passwordET.text.toString().trim()
         baseActivity?.showLoading()
         baseActivity?.hideSoftKeyBoard()
         if (baseActivity?.isNetworkConnected()!!) {
-            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "", "")
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
             val call = apiInterface.loginApi(
-                LoginEntity("Android",baseActivity?.getDeviceUniqueID()!!,email,
-                    lat!!,longi!!,password
+                LoginEntity(
+                    "Android", baseActivity?.getDeviceUniqueID()!!, email,
+                    lat!!, longi!!, password
                 )
             )
             call.enqueue(object : Callback<SignUpWrapper> {

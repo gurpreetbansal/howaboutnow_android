@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/headerLL"
+        android:background="@color/gray_color"
+        android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/profile"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:drawableStart="@drawable/diamond_shape"
+                android:drawablePadding="@dimen/_5sdp"
+                android:text="1.5K"
+                android:textColor="@color/black_color" />
+    </RelativeLayout>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray_color"
+                android:orientation="vertical"
+                tools:context=".app.fragment.home_phase.ProfileFragment">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/profileRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_color"
+                    android:padding="@dimen/_10sdp" />
+
+            <com.how_about_now.app.custom_views.SfRegulerTextView
+                    android:id="@+id/reorderTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_color"
+                    android:gravity="end"
+                    android:padding="@dimen/_10sdp"
+                    android:text="Drag to reorder"
+                    android:textColor="@color/black_color"
+                    android:textSize="@dimen/_12sdp" />
+
+            <LinearLayout
+                    android:id="@+id/mainLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_color"
+                    android:weightSum="3">
+
+                <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                        android:id="@+id/youLikedTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/liked_you_selector"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:text="134 \n Liked You"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_10sdp" />
+
+                <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                        android:id="@+id/likedYouTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/you_liked_selector"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:text="112 \n You Liked"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_10sdp" />
+
+                <com.how_about_now.app.custom_views.SfSemiBoldTextView
+                        android:id="@+id/matchTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/liked_you_selector"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:text="15\n Matched"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white_color"
+                    android:orientation="vertical">
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/about"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                        android:textColor="@color/gray_color" />
+
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/view_color" />
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:weightSum="4">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:src="@drawable/ic_fb" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:src="@drawable/ic_twitter" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:src="@drawable/ic_google" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center|center_vertical"
+                            android:layout_weight="1"
+                            android:padding="@dimen/_8sdp"
+                            android:src="@drawable/ic_linkedin" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@color/white_color"
+                    android:orientation="vertical">
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/my_answers"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/questionTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/hide_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/answerTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                        android:textColor="@color/gray_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/questionOneTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/hide_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/answerOneTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                        android:textColor="@color/gray_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/questionTwoTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/hide_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/answerTwoTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                        android:textColor="@color/gray_color" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

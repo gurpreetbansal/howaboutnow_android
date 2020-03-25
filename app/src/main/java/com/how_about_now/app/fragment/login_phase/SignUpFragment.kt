@@ -76,9 +76,25 @@ class SignUpFragment : BaseFragment(), View.OnClickListener, PermissionsListener
     override fun onClick(v: View?) {
         when (v) {
             signUpBT -> {
-                baseActivity!!.gotoMainActivity()
+                if (isSignUpValidParms())
+                    hitRegisterApi()
             }
         }
+    }
+
+    private fun isSignUpValidParms(): Boolean {
+        if (baseActivity?.isEmptyCheck(fullNameET)!!) {
+            baseActivity?.showMessage("Please enter full name")
+        } else if (baseActivity?.isEmptyCheck(emailET)!!) {
+            baseActivity?.showMessage("Please enter your email")
+        } else if (baseActivity?.isEmptyCheck(passwordET)!!) {
+            baseActivity?.showMessage("Please enter your password")
+        } else if (baseActivity?.isEmptyCheck(confirmPasswordET)!!) {
+            baseActivity?.showMessage("Please enter your confirm password")
+        } else if (!confirmPasswordET.text.toString().trim().equals(passwordET.text.toString().trim())) {
+            baseActivity?.showMessage("Password do not match")
+        } else return true
+        return false
     }
 
     private fun hitRegisterApi() {
@@ -89,7 +105,7 @@ class SignUpFragment : BaseFragment(), View.OnClickListener, PermissionsListener
         baseActivity?.showLoading()
         baseActivity?.hideSoftKeyBoard()
         if (baseActivity?.isNetworkConnected()!!) {
-            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "", "")
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
             val call = apiInterface.registerApi(
                 SignUpEntity(
                     "Android", baseActivity?.getDeviceUniqueID()!!, email, name, "",

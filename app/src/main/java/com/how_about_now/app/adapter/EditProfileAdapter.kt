@@ -9,16 +9,19 @@ import com.how_about_now.app.activity.BaseActivity
 import kotlinx.android.synthetic.main.adapter_profile.view.*
 
 
-class ProfileAdapter(
-    baseActivity: BaseActivity
+class EditProfileAdapter(
+    baseActivity: BaseActivity,
+    addImageCallBack: AddImageCallBack
 ) :
-    RecyclerView.Adapter<ProfileAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<EditProfileAdapter.MyViewHolder>() {
     var selectedPosition = 0
     var baseActivity: BaseActivity? = null
+    var addImageCallBack: AddImageCallBack? = null
 
 
     init {
         this.baseActivity = baseActivity
+        this.addImageCallBack = addImageCallBack
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -41,6 +44,7 @@ class ProfileAdapter(
 //            .load("https://source.unsplash.com/Xq1ntWruZQI/600x800")
 //            .into(holder.profileCIV)
         holder.addIV.setOnClickListener(View.OnClickListener {
+            addImageCallBack?.onAddImageListener(holder.adapterPosition)
         })
     }
 
