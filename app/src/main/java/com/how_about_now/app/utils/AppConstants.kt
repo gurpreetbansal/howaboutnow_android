@@ -25,6 +25,10 @@ object AppConstants {
     val BASE_URL = "http://68.183.74.38:8008/cashcool/api/"
     val DISPLAY_MESSAGE_ACTION = BuildConfig.APPLICATION_ID + ".DISPLAY_MESSAGE"
     val PLAY_SERVICES_RESOLUTION_REQUEST = 1234
+    const val PERMISSIONS_REQUEST_ACCESS_CAMERA = 200
+    const val PERMISSIONS_REQUEST_ACCESS_GALLERY = 201
+    const val REQUEST_CAMERA = 123
+    const val SELECT_FILE = 456
     val STATUS_CODE_SUCCESS = "success"
     val STATUS_CODE_FAILED = "failed"
 

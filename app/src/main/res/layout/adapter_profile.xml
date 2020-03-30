@@ -22,5 +22,14 @@
             android:layout_alignEnd="@+id/profileCIV"
             android:src="@drawable/ic_add_img" />
 
+    <ImageView
+            android:id="@+id/removeIV"
+            android:visibility="gone"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignTop="@+id/profileCIV"
+            android:layout_alignEnd="@+id/profileCIV"
+            android:src="@drawable/ic_add_img" />
+
 
 </RelativeLayout>

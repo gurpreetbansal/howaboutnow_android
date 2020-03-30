@@ -34,7 +34,7 @@ import java.io.File
 /**
  * A simple [Fragment] subclass.
  */
-class CameraDialog : BaseDialogFragment(), View.OnClickListener,
+class CameraDialog : DialogBaseFragment(), View.OnClickListener,
     PermissionCallBack.PermissionListener {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onPermissionCallBack(
@@ -178,6 +178,7 @@ class CameraDialog : BaseDialogFragment(), View.OnClickListener,
                     var intent = Intent(baseActivity, ImageCropperActivity::class.java)
                     intent.putExtra("imageUri", imageUri)
                     startActivity(intent)
+                    dismiss()
 
 //                    val msg = "Pic captured at " + file.absolutePath
 //                    Toast.makeText(baseActivity!!, msg, Toast.LENGTH_LONG).show()

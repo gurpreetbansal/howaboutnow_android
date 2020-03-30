@@ -1,29 +1,37 @@
 package com.how_about_now.app.fragment.home_phase
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.how_about_now.app.R
 import com.how_about_now.app.adapter.EditProfileAdapter
 import com.how_about_now.app.fragment.BaseFragment
-import com.how_about_now.app.fragment.CameraDialog
+import com.how_about_now.app.fragment.BottomSheetFragment
+import com.how_about_now.app.utils.BottomSheetImageCallBack
+import com.how_about_now.app.utils.ItemMoveCallback
 import kotlinx.android.synthetic.main.fragment_profile.*
+import java.io.File
+
 
 /**
  * A simple [Fragment] subclass.
  */
 class EditProfileFragment : BaseFragment(), View.OnClickListener,
-    EditProfileAdapter.AddImageCallBack {
+    EditProfileAdapter.AddImageCallBack, BottomSheetImageCallBack.ImageCallBackListener {
 
     private var isHide: Boolean = true
     private var isHideOne: Boolean = true
     private var isHideTwo: Boolean = true
+    private var profileImagesUriArrayList = ArrayList<Uri>()
+    private var editProfileAdapter: EditProfileAdapter? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,9 +46,14 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun init() {
-
+        BottomSheetImageCallBack.getInstance(baseActivity).setImageCallBackListener(this)
         profileRV.layoutManager = GridLayoutManager(baseActivity!!, 3, RecyclerView.VERTICAL, false)
-        profileRV.adapter = EditProfileAdapter(baseActivity!!, this)
+
+        editProfileAdapter = EditProfileAdapter(baseActivity!!, this, profileImagesUriArrayList)
+        val callback: ItemTouchHelper.Callback = ItemMoveCallback(editProfileAdapter)
+        val touchHelper = ItemTouchHelper(callback)
+        touchHelper.attachToRecyclerView(profileRV)
+        profileRV.adapter = editProfileAdapter
 
         questionTV.setOnClickListener(this)
         questionOneTV.setOnClickListener(this)
@@ -119,9 +132,21 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
     }
 
     override fun onAddImageListener(position: Int) {
-        //            requestCameraPermission();
-        val cameraDialog = CameraDialog()
-        cameraDialog.show(baseActivity!!.supportFragmentManager, "cameraTag")
+        var bottomSheetFragment = BottomSheetFragment()
+        bottomSheetFragment.show(
+            baseActivity!!.getSupportFragmentManager(),
+            bottomSheetFragment.getTag()
+        )
+    }
+
+    override fun onImageCallBackCallBack(file: File?, filePath: String?, uri: Uri?) {
+        baseActivity?.showMessage(uri.toString())
+        profileImagesUriArrayList.add(uri!!)
+        editProfileAdapter = EditProfileAdapter(baseActivity!!, this, profileImagesUriArrayList)
+        val callback: ItemTouchHelper.Callback = ItemMoveCallback(editProfileAdapter)
+        val touchHelper = ItemTouchHelper(callback)
+        touchHelper.attachToRecyclerView(profileRV)
+        profileRV.adapter = editProfileAdapter
     }
 
 }
