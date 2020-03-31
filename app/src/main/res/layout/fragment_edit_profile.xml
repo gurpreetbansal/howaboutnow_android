@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/headerLL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/headerLL"
         android:background="@color/gray_color"
         android:orientation="vertical">
 
@@ -12,12 +12,22 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white_color">
 
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/doneTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/done"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
+
         <com.how_about_now.app.custom_views.SfSemiBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:text="@string/profile"
+                android:text="@string/edit_profile"
                 android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
@@ -117,12 +127,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_10sdp"
-                        android:text="@string/about"
+                        android:text="@string/gender"
+                        android:textColor="@color/black_color" />
+
+                <RadioGroup
+                        android:id="@+id/radioGroupRG"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <RadioButton
+                            android:id="@+id/maleRB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/male" />
+
+                    <RadioButton
+                            android:id="@+id/femaleRB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/female" />
+                </RadioGroup>
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/date_of_birth"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/dobTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="01-01-2020"
                         android:textColor="@color/black_color" />
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/about"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerEditText
+                        android:id="@+id/aboutET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
                         android:padding="@dimen/_10sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
                         android:textColor="@color/gray_color" />
@@ -201,15 +254,18 @@
                         android:drawablePadding="@dimen/_10sdp"
                         android:padding="@dimen/_10sdp"
                         android:text="Lorem Ipsum is simply dummy text"
-                        android:textColor="@color/black_color" />
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
 
-                <com.how_about_now.app.custom_views.SfRegulerTextView
-                        android:id="@+id/answerTV"
+                <com.how_about_now.app.custom_views.SfRegulerEditText
+                        android:id="@+id/answerET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/white_color"
                         android:padding="@dimen/_10sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-                        android:textColor="@color/gray_color" />
+                        android:textColor="@color/gray_color"
+                        android:textSize="@dimen/_12sdp" />
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
                         android:id="@+id/questionOneTV"
@@ -221,13 +277,15 @@
                         android:text="Lorem Ipsum is simply dummy text"
                         android:textColor="@color/black_color" />
 
-                <com.how_about_now.app.custom_views.SfRegulerTextView
-                        android:id="@+id/answerOneTV"
+                <com.how_about_now.app.custom_views.SfRegulerEditText
+                        android:id="@+id/answerOneET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/white_color"
                         android:padding="@dimen/_10sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-                        android:textColor="@color/gray_color" />
+                        android:textColor="@color/gray_color"
+                        android:textSize="@dimen/_12sdp" />
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
                         android:id="@+id/questionTwoTV"
@@ -237,15 +295,39 @@
                         android:drawablePadding="@dimen/_10sdp"
                         android:padding="@dimen/_10sdp"
                         android:text="Lorem Ipsum is simply dummy text"
-                        android:textColor="@color/black_color" />
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
 
-                <com.how_about_now.app.custom_views.SfRegulerTextView
-                        android:id="@+id/answerTwoTV"
+                <com.how_about_now.app.custom_views.SfRegulerEditText
+                        android:id="@+id/answerTwoET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@color/white_color"
                         android:padding="@dimen/_10sdp"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
-                        android:textColor="@color/gray_color" />
+                        android:textColor="@color/gray_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/questionThreeTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/hide_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text"
+                        android:textColor="@color/black_color"
+                        android:textSize="@dimen/_12sdp" />
+
+                <com.how_about_now.app.custom_views.SfRegulerEditText
+                        android:id="@+id/answerThreeET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white_color"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                        android:textColor="@color/gray_color"
+                        android:textSize="@dimen/_12sdp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

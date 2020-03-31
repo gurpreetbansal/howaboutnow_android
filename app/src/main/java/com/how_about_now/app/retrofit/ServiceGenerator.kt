@@ -13,8 +13,6 @@ import java.util.concurrent.TimeUnit
  */
 
 object ServiceGenerator {
-    // public static final String API_BASE_URL = "http://1bfbbf76.ngrok.io/dev/thriftshopper/api/";
-    // http://68.183.74.38:8008/thriftshopper/
     val API_BASE_URL = "https://clientstagingdev.com/how_about_now/API/"
     private val httpClient = OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)

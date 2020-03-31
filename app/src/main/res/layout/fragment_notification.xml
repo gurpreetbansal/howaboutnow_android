@@ -48,7 +48,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/offersTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,6 +55,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/special_offers_promotions"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -74,8 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_below="@+id/offersSW"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/view_color" />
 
     </RelativeLayout>
@@ -86,7 +86,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/friendBirthdayTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,6 +93,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_it_s_a_friend_s_birthday"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -112,8 +112,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_below="@+id/birthdaySW"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/view_color" />
 
     </RelativeLayout>
@@ -124,7 +124,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/purchaseNotificationTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,6 +131,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_it_s_a_friend_s_birthday"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -155,7 +155,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/someOneLikeYouTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -163,6 +162,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_someone_like_you"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -181,8 +181,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_below="@+id/someOneLikeYouSW"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/view_color" />
 
     </RelativeLayout>
@@ -193,7 +193,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/someVisitYourProfileTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -201,6 +200,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_someone_visit_your_profile"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -219,8 +219,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_below="@+id/someVisitYourProfileSW"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/view_color" />
 
     </RelativeLayout>
@@ -231,7 +231,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/getNewMessageTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -239,6 +238,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_you_get_a_new_message"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -257,8 +257,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_below="@+id/getNewMessageSW"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/view_color" />
 
     </RelativeLayout>
@@ -269,7 +269,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/whenYouHaveNewMatchTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -277,6 +276,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_you_have_a_new_match"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -295,8 +295,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_below="@+id/whenYouHaveNewMatchSW"
-                android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/view_color" />
 
     </RelativeLayout>
@@ -307,7 +307,6 @@
             android:background="@color/white_color">
 
         <com.how_about_now.app.custom_views.SfRegulerTextView
-                android:textColor="@color/black_color"
                 android:id="@+id/whenYouGetNewRecommendationTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -315,6 +314,7 @@
                 android:gravity="center_vertical"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/when_you_get_a_new_recommendation"
+                android:textColor="@color/black_color"
                 android:textSize="@dimen/_12sdp" />
 
 
@@ -330,5 +330,19 @@
 
 
     </RelativeLayout>
+
+    <com.how_about_now.app.custom_views.SfRegulerButton
+            android:id="@+id/submitBT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/button_selector"
+            android:text="@string/submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white_color"
+            android:textSize="@dimen/_14sdp" />
+
 
 </LinearLayout>

@@ -1,8 +1,15 @@
 package com.how_about_now.app.retrofit
 
+import com.how_about_now.app.data.AboutUsWrapper
+import com.how_about_now.app.data.FeedbackEntity
+import com.how_about_now.app.data.FeedbackWrapper
 import com.how_about_now.app.data.login_phase.*
+import com.how_about_now.app.data.notification_phase.NotificationEntity
+import com.how_about_now.app.data.notification_phase.NotificationWrapper
+import com.how_about_now.app.data.profile_data.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 
 
@@ -15,6 +22,24 @@ interface ApiInterface {
 
     @POST("index.php?p=forgot_password")
     fun forgotPasswordApi(@Body forgotPasswordEntity: ForgotPasswordEntity): Call<ForgotPasswordWrapper>
+
+    @POST("index.php?p=edit_profile")
+    fun editProfileApi(@Body editProfileEntity: EditProfileEntity): Call<EditProfileWrapper>
+
+    @POST("index.php?p=getUserInfo")
+    fun getUserInfoApi(@Body userIdEntity: UserIdEntity): Call<GetUserInfoWrapper>
+
+    @POST("index.php?p=question_list")
+    fun questionListApi(@Body userIdEntity: UserIdEntity): Call<QuestionListWrapper>
+
+    @POST("index.php?p=userFeedback")
+    fun userFeedbackApi(@Body feedbackEntity: FeedbackEntity): Call<FeedbackWrapper>
+
+    @GET("index.php?p=aboutUs")
+    fun aboutUsApi(): Call<AboutUsWrapper>
+
+    @POST("index.php?p=enableNoti")
+    fun enableNotificationsApi(@Body notificationEntity: NotificationEntity): Call<NotificationWrapper>
 
 
 //

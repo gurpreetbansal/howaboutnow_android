@@ -32,7 +32,7 @@ public class ItemMoveCallback extends ItemTouchHelper.Callback {
 
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        mAdapter.onRowClear(viewHolder.getAdapterPosition());
+//        mAdapter.onRowClear(viewHolder.getAdapterPosition());
     }
 
     @Override

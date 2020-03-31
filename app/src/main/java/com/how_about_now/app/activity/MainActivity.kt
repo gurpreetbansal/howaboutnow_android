@@ -48,8 +48,14 @@ class MainActivity : BaseActivity(), View.OnClickListener, DrawerAdapter.DrawerC
         setContentView(R.layout.activity_main)
         setToolbar()
         initDrawer()
+        getUserData()
         init()
         setToolbarVisibilityGone()
+    }
+
+    private fun getUserData() {
+        var msg = getProfileData()
+        log("UserId>>>>>>>>" + " " + msg.user_id)
     }
 
     private fun init() {
@@ -278,13 +284,13 @@ class MainActivity : BaseActivity(), View.OnClickListener, DrawerAdapter.DrawerC
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_discover -> {
-//                gotoFragment(DiscoverFragment(), R.id.container)
-                gotoFragment(NearByFragment(), R.id.container)
+                gotoFragment(DiscoverFragment(), R.id.container)
+//                gotoFragment(NearByFragment(), R.id.container)
             }
             R.id.action_profile -> {
-                gotoFragment(EditProfileFragment(), R.id.container)
+//                gotoFragment(EditProfileFragment(), R.id.container)
 //                gotoFragment(ProfileDetailFragment(), R.id.container)
-//                gotoFragment(ProfileFragment(), R.id.container)
+                gotoFragment(ProfileFragment(), R.id.container)
             }
             R.id.action_settings -> {
                 gotoFragment(SettingsFragment(), R.id.container)

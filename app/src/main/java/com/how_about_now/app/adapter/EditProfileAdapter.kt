@@ -16,14 +16,14 @@ import java.util.*
 class EditProfileAdapter(
     baseActivity: BaseActivity,
     addImageCallBack: AddImageCallBack,
-    profileImagesUriArrayList: ArrayList<Uri>
+    profileImagesUriArrayList: ArrayList<String>
 ) :
     RecyclerView.Adapter<EditProfileAdapter.MyViewHolder>(),
     ItemMoveCallback.ItemTouchHelperContract {
     var selectedPosition = 0
     var baseActivity: BaseActivity? = null
     var addImageCallBack: AddImageCallBack? = null
-    var profileImagesUriArrayList: ArrayList<Uri>? = null
+    var profileImagesUriArrayList: ArrayList<String>? = null
 
 
     init {
@@ -51,7 +51,13 @@ class EditProfileAdapter(
             when (position) {
                 0 -> {
                     if (profileImagesUriArrayList!!.size > 0) {
-                        holder.profileCIV.setImageURI(profileImagesUriArrayList!!.get(position))
+                        holder.profileCIV.setImageURI(
+                            Uri.parse(
+                                profileImagesUriArrayList!!.get(
+                                    position
+                                )
+                            )
+                        )
                         holder.addIV.visibility = View.GONE
                         holder.removeIV.visibility = View.VISIBLE
                     } else {
@@ -62,7 +68,13 @@ class EditProfileAdapter(
                 }
                 1 -> {
                     if (profileImagesUriArrayList!!.size > 1) {
-                        holder.profileCIV.setImageURI(profileImagesUriArrayList!!.get(position))
+                        holder.profileCIV.setImageURI(
+                            Uri.parse(
+                                profileImagesUriArrayList!!.get(
+                                    position
+                                )
+                            )
+                        )
                         holder.addIV.visibility = View.GONE
                         holder.removeIV.visibility = View.VISIBLE
                     } else {
@@ -73,7 +85,13 @@ class EditProfileAdapter(
                 }
                 2 -> {
                     if (profileImagesUriArrayList!!.size > 2) {
-                        holder.profileCIV.setImageURI(profileImagesUriArrayList!!.get(position))
+                        holder.profileCIV.setImageURI(
+                            Uri.parse(
+                                profileImagesUriArrayList!!.get(
+                                    position
+                                )
+                            )
+                        )
                         holder.addIV.visibility = View.GONE
                         holder.removeIV.visibility = View.VISIBLE
                     } else {
@@ -84,7 +102,13 @@ class EditProfileAdapter(
                 }
                 3 -> {
                     if (profileImagesUriArrayList!!.size > 3) {
-                        holder.profileCIV.setImageURI(profileImagesUriArrayList!!.get(position))
+                        holder.profileCIV.setImageURI(
+                            Uri.parse(
+                                profileImagesUriArrayList!!.get(
+                                    position
+                                )
+                            )
+                        )
                         holder.addIV.visibility = View.GONE
                         holder.removeIV.visibility = View.VISIBLE
                     } else {
@@ -95,7 +119,13 @@ class EditProfileAdapter(
                 }
                 4 -> {
                     if (profileImagesUriArrayList!!.size > 4) {
-                        holder.profileCIV.setImageURI(profileImagesUriArrayList!!.get(position))
+                        holder.profileCIV.setImageURI(
+                            Uri.parse(
+                                profileImagesUriArrayList!!.get(
+                                    position
+                                )
+                            )
+                        )
                         holder.addIV.visibility = View.GONE
                         holder.removeIV.visibility = View.VISIBLE
                     } else {
@@ -106,7 +136,13 @@ class EditProfileAdapter(
                 }
                 5 -> {
                     if (profileImagesUriArrayList!!.size > 5) {
-                        holder.profileCIV.setImageURI(profileImagesUriArrayList!!.get(position))
+                        holder.profileCIV.setImageURI(
+                            Uri.parse(
+                                profileImagesUriArrayList!!.get(
+                                    position
+                                )
+                            )
+                        )
                         holder.addIV.visibility = View.GONE
                         holder.removeIV.visibility = View.VISIBLE
                     } else {
@@ -122,10 +158,6 @@ class EditProfileAdapter(
                 }
             }
 
-
-//        Glide.with(baseActivity!!)
-//            .load("https://source.unsplash.com/Xq1ntWruZQI/600x800")
-//            .into(holder.profileCIV)
         holder.addIV.setOnClickListener(View.OnClickListener {
             if (profileImagesUriArrayList!!.size > 0) {
                 if (profileImagesUriArrayList!!.size == holder.adapterPosition) {

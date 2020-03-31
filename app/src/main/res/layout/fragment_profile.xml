@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/headerLL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/headerLL"
         android:background="@color/gray_color"
         android:orientation="vertical">
 
@@ -11,6 +11,16 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white_color">
+
+        <com.how_about_now.app.custom_views.SfRegulerTextView
+                android:id="@+id/editTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="@string/edit"
+                android:textColor="@color/black_color"
+                android:textSize="@dimen/_12sdp" />
 
         <com.how_about_now.app.custom_views.SfSemiBoldTextView
                 android:layout_width="wrap_content"
@@ -117,10 +127,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_10sdp"
+                        android:text="@string/gender"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/genderSelectionTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Male"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/date_of_birth"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/dobTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="01-01-2020"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
                         android:text="@string/about"
                         android:textColor="@color/black_color" />
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/aboutUsTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_10sdp"
@@ -241,6 +282,24 @@
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
                         android:id="@+id/answerTwoTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                        android:textColor="@color/gray_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/questionThreeTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/hide_shape"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="Lorem Ipsum is simply dummy text"
+                        android:textColor="@color/black_color" />
+
+                <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/answerThreeTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_10sdp"

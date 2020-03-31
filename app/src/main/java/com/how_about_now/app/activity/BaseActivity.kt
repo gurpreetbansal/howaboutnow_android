@@ -126,6 +126,10 @@ open class BaseActivity : AppCompatActivity() {
         SnackBarManager.showSnackBar(message, this)
     }
 
+    fun log(message: String) {
+        CommonUtils.log(this, message)
+    }
+
     fun showLoading() {
         CommonUtils.showProgressDialog(this)
     }
@@ -133,6 +137,7 @@ open class BaseActivity : AppCompatActivity() {
     fun hideLoading() {
         CommonUtils.hideProgressDialog()
     }
+
     fun showMessage(message: String) {
         CommonUtils.showToast(this, message)
     }
@@ -144,6 +149,7 @@ open class BaseActivity : AppCompatActivity() {
     fun isNetworkConnected(): Boolean {
         return NetworkUtils.isNetworkConnected(applicationContext)
     }
+
     fun isValidEmail(target: CharSequence): Boolean {
         return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches())
     }
@@ -155,6 +161,7 @@ open class BaseActivity : AppCompatActivity() {
     fun getTextValue(editText: EditText?): String {
         return editText?.text?.toString()?.trim { it <= ' ' } ?: ""
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

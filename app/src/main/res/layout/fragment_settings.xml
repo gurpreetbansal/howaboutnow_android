@@ -175,6 +175,7 @@
                         android:background="@color/view_color" />
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/aboutUsTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white_color"
@@ -213,6 +214,7 @@
                         android:background="@color/view_color" />
 
                 <com.how_about_now.app.custom_views.SfRegulerTextView
+                        android:id="@+id/feedbackTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/white_color"

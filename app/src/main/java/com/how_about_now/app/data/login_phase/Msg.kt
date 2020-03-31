@@ -10,5 +10,6 @@ data class Msg(
     val lat: String,
     val lng: String,
     val email: String,
+    val token: String,
     val user_id: Int
 )
