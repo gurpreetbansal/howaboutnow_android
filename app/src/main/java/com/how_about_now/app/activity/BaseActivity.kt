@@ -172,6 +172,12 @@ open class BaseActivity : AppCompatActivity() {
             .onPermissionListener(requestCode, permissions, grantResults)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        GalleryImageCallBack.getInstance(this)
+            .onGalleryImageListener(requestCode, resultCode, data)
+    }
+
     fun saveProfileData(authData: Msg): Msg {
         store.save("authData", authData)
         return authData

@@ -151,6 +151,7 @@ class ProfileFragment : BaseFragment(), View.OnClickListener {
                 }
             }
             editTV -> {
+                baseActivity!!.store.save("profileData",getUserInfoMsgArrayList)
                 var bundle = Bundle()
                 bundle.putParcelableArrayList("profileData", getUserInfoMsgArrayList)
                 baseActivity!!.gotoFragment(EditProfileFragment(), R.id.container, bundle)

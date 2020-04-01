@@ -33,6 +33,7 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
         filterTV.setOnClickListener(this)
         feedbackTV.setOnClickListener(this)
         aboutUsTV.setOnClickListener(this)
+        helpCenterTV.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -51,6 +52,9 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
             }
             aboutUsTV -> {
                 baseActivity!!.gotoFragment(AboutUsFragment(), R.id.container)
+            }
+            helpCenterTV -> {
+                baseActivity!!.gotoFragment(HelpCenterFragment(), R.id.container)
             }
         }
     }

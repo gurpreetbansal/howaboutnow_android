@@ -3,14 +3,21 @@ package com.how_about_now.app.retrofit
 import com.how_about_now.app.data.AboutUsWrapper
 import com.how_about_now.app.data.FeedbackEntity
 import com.how_about_now.app.data.FeedbackWrapper
+import com.how_about_now.app.data.favoirite_phase.FavouriteEntity
+import com.how_about_now.app.data.favoirite_phase.FavouriteWrapper
 import com.how_about_now.app.data.login_phase.*
+import com.how_about_now.app.data.near_by_me.NearByMeEntity
+import com.how_about_now.app.data.near_by_me.NearByMeWrapper
 import com.how_about_now.app.data.notification_phase.NotificationEntity
 import com.how_about_now.app.data.notification_phase.NotificationWrapper
 import com.how_about_now.app.data.profile_data.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Part
 
 
 interface ApiInterface {
@@ -26,6 +33,17 @@ interface ApiInterface {
     @POST("index.php?p=edit_profile")
     fun editProfileApi(@Body editProfileEntity: EditProfileEntity): Call<EditProfileWrapper>
 
+    @POST("index.php?p=editImage")
+    fun editImageApi(
+        @Part("user_id") user_id: RequestBody,
+        @Part image1: MultipartBody.Part,
+        @Part image2: MultipartBody.Part,
+        @Part image3: MultipartBody.Part,
+        @Part image4: MultipartBody.Part,
+        @Part image5: MultipartBody.Part,
+        @Part image6: MultipartBody.Part
+    ): Call<EditProfileWrapper>
+
     @POST("index.php?p=getUserInfo")
     fun getUserInfoApi(@Body userIdEntity: UserIdEntity): Call<GetUserInfoWrapper>
 
@@ -38,8 +56,18 @@ interface ApiInterface {
     @GET("index.php?p=aboutUs")
     fun aboutUsApi(): Call<AboutUsWrapper>
 
+    @GET("index.php?p=helpCenter")
+    fun helpCenterApi(): Call<AboutUsWrapper>
+
     @POST("index.php?p=enableNoti")
     fun enableNotificationsApi(@Body notificationEntity: NotificationEntity): Call<NotificationWrapper>
+
+
+    @POST("index.php?p=userNearByMe")
+    fun userNearByMeApi(@Body nearByMeEntity: NearByMeEntity): Call<NearByMeWrapper>
+
+    @POST("index.php?p=favourite")
+    fun favouriteApi(@Body nearByMeEntity: FavouriteEntity): Call<FavouriteWrapper>
 
 
 //

@@ -4,23 +4,23 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class GetUserInfoMsg(
-    val about_me: String,
-    val age: Int,
-    val birthday: String,
-    val company: String,
-    val first_name: String,
-    val gender: String,
-    val image1: String,
-    val image2: String,
-    val image3: String,
-    val image4: String,
-    val image5: String,
-    val image6: String,
-    val job_title: String,
-    val last_name: String,
-    val school: String,
+    val about_me: String = "",
+    val age: Int = 0,
+    val birthday: String = "",
+    val company: String = "",
+    val first_name: String = "",
+    val gender: String = "",
+    val image1: String = "",
+    val image2: String = "",
+    val image3: String = "",
+    val image4: String = "",
+    val image5: String = "",
+    val image6: String = "",
+    val job_title: String = "",
+    val last_name: String = "",
+    val school: String = "",
     val user_answer: ArrayList<GetUserAnswer>
-):Parcelable {
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readInt(),

@@ -22,6 +22,7 @@ import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
 import com.how_about_now.app.utils.AppConstants
 import com.how_about_now.app.utils.BottomSheetImageCallBack
+import com.how_about_now.app.utils.FileUtils
 import com.how_about_now.app.utils.ItemMoveCallback
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.answerOneTV
@@ -33,6 +34,9 @@ import kotlinx.android.synthetic.main.fragment_profile.profileRV
 import kotlinx.android.synthetic.main.fragment_profile.questionOneTV
 import kotlinx.android.synthetic.main.fragment_profile.questionTV
 import kotlinx.android.synthetic.main.fragment_profile.questionTwoTV
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,6 +58,7 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
     private var isHideOne: Boolean = true
     private var isHideTwo: Boolean = true
     private var profileImagesUriArrayList = ArrayList<String>()
+    private var updateImageUriArrayList = ArrayList<Uri>()
     private var editProfileAdapter: EditProfileAdapter? = null
     private var calender: Calendar? = null
     private var getUserInfoMsgArrayList = ArrayList<GetUserInfoMsg>()
@@ -64,6 +69,8 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
         if (arguments != null) {
             getUserInfoMsgArrayList =
                 arguments!!.getParcelableArrayList<GetUserInfoMsg>("profileData")!!
+
+            getUserInfoMsgArrayList=baseActivity!!.store.getObject("profileData",ArrayList<GetUserInfoMsg>)
         }
     }
 
@@ -83,35 +90,40 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
     }
 
     private fun getProfileData() {
-        profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image1)
-        profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image2)
-        profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image3)
-        profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image4)
-        profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image5)
-        profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image6)
+        if (getUserInfoMsgArrayList.size > 0) {
+            profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image1)
+            profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image2)
+            profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image3)
+            profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image4)
+            profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image5)
+            profileImagesUriArrayList.add(getUserInfoMsgArrayList.get(0).image6)
 
-        questionTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(0).question)
-        answerET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(0).answer)
+            questionTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(0).question)
+            answerET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(0).answer)
 
-        questionOneTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(1).question)
-        answerOneET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(1).answer)
+            questionOneTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(1).question)
+            answerOneET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(1).answer)
 
-        questionTwoTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(2).question)
-        answerTwoET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(2).answer)
+            questionTwoTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(2).question)
+            answerTwoET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(2).answer)
 
-        questionThreeTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(3).question)
-        answerThreeET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(3).answer)
+            questionThreeTV.setText(getUserInfoMsgArrayList.get(0).user_answer.get(3).question)
+            answerThreeET.setText(getUserInfoMsgArrayList.get(0).user_answer.get(3).answer)
 
-        aboutET.setText(getUserInfoMsgArrayList.get(0).about_me)
-        dobTV.setText(getUserInfoMsgArrayList.get(0).birthday)
-        if (getUserInfoMsgArrayList.get(0).gender.equals("male")) {
-            maleRB.isChecked = true
-            femaleRB.isChecked = false
-        } else {
-            maleRB.isChecked = false
-            femaleRB.isChecked = true
+            aboutET.setText(getUserInfoMsgArrayList.get(0).about_me)
+            dobTV.setText(getUserInfoMsgArrayList.get(0).birthday)
+            if (getUserInfoMsgArrayList.get(0).gender.equals("male")) {
+                maleRB.isChecked = true
+                femaleRB.isChecked = false
+                gender = "1"
+            } else {
+                if (!getUserInfoMsgArrayList.get(0).gender.isEmpty()) {
+                    maleRB.isChecked = false
+                    femaleRB.isChecked = true
+                    gender = "2"
+                }
+            }
         }
-
     }
 
     private fun init() {
@@ -261,6 +273,7 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
     override fun onImageCallBackCallBack(file: File?, filePath: String?, uri: Uri?) {
         baseActivity?.showMessage(uri.toString())
         profileImagesUriArrayList.add(uri!!.toString())
+        updateImageUriArrayList.add(uri)
         editProfileAdapter = EditProfileAdapter(baseActivity!!, this, profileImagesUriArrayList)
         val callback: ItemTouchHelper.Callback = ItemMoveCallback(editProfileAdapter)
         val touchHelper = ItemTouchHelper(callback)
@@ -273,8 +286,11 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
         var selectGender: String = ""
         if (gender.equals("1")) {
             selectGender = "male"
-        } else {
+        } else if (gender.equals("2")) {
             selectGender = "female"
+        } else {
+            baseActivity!!.showMessage("Please select your gender")
+            return
         }
         var aboutUs = aboutET.text.toString().trim()
         var dob = dobTV.text.toString().trim()
@@ -331,7 +347,7 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
                     var editProfileWrapper = response?.body()
 
                     if (editProfileWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
-                        baseActivity?.supportFragmentManager?.popBackStack()
+                        hitProfileImageApi()
                     } else {
 //                        baseActivity?.showMessage(signUpWrapper!!.message)
                     }
@@ -395,5 +411,132 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
 
     }
 
+    private fun hitProfileImageApi() {
+        baseActivity?.showLoading()
+        baseActivity?.hideSoftKeyBoard()
+        if (baseActivity?.isNetworkConnected()!!) {
+            val call = editImage()
 
+            call.enqueue(object : Callback<EditProfileWrapper> {
+                override fun onResponse(
+                    call: Call<EditProfileWrapper>?,
+                    response: Response<EditProfileWrapper>?
+                ) {
+                    baseActivity?.hideLoading()
+
+                    var editProfileWrapper = response?.body()
+
+                    if (editProfileWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
+                        baseActivity?.supportFragmentManager?.popBackStack()
+
+
+                    } else {
+//                        baseActivity?.showMessage(signUpWrapper!!.message)
+                    }
+                }
+
+                override fun onFailure(call: Call<EditProfileWrapper>?, t: Throwable?) {
+                    baseActivity?.hideLoading()
+                    baseActivity?.showMessage(t!!.localizedMessage)
+                }
+            })
+        } else {
+            baseActivity?.hideLoading()
+            baseActivity?.showMessage(getString(R.string.no_int_connection))
+        }
+
+    }
+
+    private fun editImage(): Call<EditProfileWrapper> {
+        val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
+
+        var msg = baseActivity!!.getProfileData()
+        var image1: MultipartBody.Part? = null
+        var image2: MultipartBody.Part? = null
+        var image3: MultipartBody.Part? = null
+        var image4: MultipartBody.Part? = null
+        var image5: MultipartBody.Part? = null
+        var image6: MultipartBody.Part? = null
+
+        var user_id = RequestBody.create(
+            okhttp3.MultipartBody.FORM, msg.user_id.toString()
+        )
+
+        if (updateImageUriArrayList.size > 0) {
+            for (i in 0 until updateImageUriArrayList.size) {
+                when (i) {
+                    0 -> {
+                        var file = FileUtils.getFile(baseActivity, updateImageUriArrayList.get(i))
+                        var requestFile1 = RequestBody.create(MediaType.parse("image/*"), file)
+                        image1 =
+                            MultipartBody.Part.createFormData(
+                                "image1",
+                                file.getName(),
+                                requestFile1
+                            )
+                    }
+                    1 -> {
+                        var file = FileUtils.getFile(baseActivity, updateImageUriArrayList.get(i))
+                        var requestFile1 = RequestBody.create(MediaType.parse("image/*"), file)
+                        image2 =
+                            MultipartBody.Part.createFormData(
+                                "image2",
+                                file.getName(),
+                                requestFile1
+                            )
+                    }
+                    2 -> {
+                        var file = FileUtils.getFile(baseActivity, updateImageUriArrayList.get(i))
+                        var requestFile1 = RequestBody.create(MediaType.parse("image/*"), file)
+                        image3 =
+                            MultipartBody.Part.createFormData(
+                                "image3",
+                                file.getName(),
+                                requestFile1
+                            )
+                    }
+                    3 -> {
+                        var file = FileUtils.getFile(baseActivity, updateImageUriArrayList.get(i))
+                        var requestFile1 = RequestBody.create(MediaType.parse("image/*"), file)
+                        image4 =
+                            MultipartBody.Part.createFormData(
+                                "image4",
+                                file.getName(),
+                                requestFile1
+                            )
+                    }
+                    4 -> {
+                        var file = FileUtils.getFile(baseActivity, updateImageUriArrayList.get(i))
+                        var requestFile1 = RequestBody.create(MediaType.parse("image/*"), file)
+                        image5 =
+                            MultipartBody.Part.createFormData(
+                                "image5",
+                                file.getName(),
+                                requestFile1
+                            )
+                    }
+                    5 -> {
+                        var file = FileUtils.getFile(baseActivity, updateImageUriArrayList.get(i))
+                        var requestFile1 = RequestBody.create(MediaType.parse("image/*"), file)
+                        image6 =
+                            MultipartBody.Part.createFormData(
+                                "image6",
+                                file.getName(),
+                                requestFile1
+                            )
+                    }
+                }
+            }
+        }
+
+        return apiInterface.editImageApi(
+            user_id,
+            image1!!,
+            image2!!,
+            image3!!,
+            image4!!,
+            image5!!,
+            image6!!
+        )
+    }
 }

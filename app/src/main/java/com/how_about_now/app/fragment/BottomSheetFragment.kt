@@ -14,10 +14,12 @@ import androidx.core.content.ContextCompat
 import com.how_about_now.app.R
 import com.how_about_now.app.activity.ImageCropperActivity
 import com.how_about_now.app.utils.AppConstants
+import com.how_about_now.app.utils.GalleryImageCallBack
 import kotlinx.android.synthetic.main.dialog_select_option.*
 
 
-class BottomSheetFragment : BaseDialogFragment(), View.OnClickListener {
+class BottomSheetFragment : BaseDialogFragment(), View.OnClickListener,
+    GalleryImageCallBack.GalleryImageListener {
 
 
     private var outputfileUri: Uri? = null
@@ -57,7 +59,7 @@ class BottomSheetFragment : BaseDialogFragment(), View.OnClickListener {
         galleryTV.setOnClickListener(this)
         cameraTV.setOnClickListener(this)
         selectLL.setOnClickListener(this)
-
+        GalleryImageCallBack.getInstance(baseActivity!!).setGalleryImageListener(this)
     }
 
     fun requestGalleryPermission() {
@@ -121,6 +123,17 @@ class BottomSheetFragment : BaseDialogFragment(), View.OnClickListener {
             ) {
                 startGalleryIntent()
             }
+        }
+    }
+
+    override fun onGalleryImageCallBack(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+                if (data != null) {
+                    outputfileUri = data.data
+                    var intent = Intent(baseActivity, ImageCropperActivity::class.java)
+                    intent.putExtra("imageUri", outputfileUri)
+                    baseActivity!!.startActivity(intent)
+                }
         }
     }
 }

@@ -11,18 +11,16 @@ import com.how_about_now.app.data.favoirite_phase.FavouriteMsg
 import kotlinx.android.synthetic.main.adapter_favourite.view.*
 
 
-class FavouriteAdapter(
-    baseActivity: BaseActivity,
-    favouriteArrayList: ArrayList<FavouriteMsg>
+class MatchesAdapter(
+    baseActivity: BaseActivity
+
 ) :
-    RecyclerView.Adapter<FavouriteAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<MatchesAdapter.MyViewHolder>() {
     var selectedPosition = 0
     var baseActivity: BaseActivity? = null
-    var favouriteArrayList: ArrayList<FavouriteMsg>? = null
 
 
     init {
-        this.favouriteArrayList = favouriteArrayList
         this.baseActivity = baseActivity
     }
 
@@ -37,15 +35,12 @@ class FavouriteAdapter(
     }
 
     override fun getItemCount(): Int {
-        return favouriteArrayList!!.size
+        return 10
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var favouriteMsg = favouriteArrayList!!.get(position)
-
-        holder.titleTV.setText(favouriteMsg.name)
         Glide.with(baseActivity!!)
-            .load(favouriteMsg.image)
+            .load("https://source.unsplash.com/Xq1ntWruZQI/600x800")
             .into(holder.profileCIV)
     }
 

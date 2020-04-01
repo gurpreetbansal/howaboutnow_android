@@ -13,7 +13,7 @@ import com.how_about_now.app.fragment.BaseFragment
 import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
 import com.how_about_now.app.utils.AppConstants
-import kotlinx.android.synthetic.main.fragment_about_us.*
+import kotlinx.android.synthetic.main.fragment_help_center.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,9 +22,8 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  *
  */
-class AboutUsFragment : BaseFragment() {
+class HelpCenterFragment : BaseFragment() {
 
-    private var isMainActivity: Boolean? = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,7 @@ class AboutUsFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_about_us, container, false)
+        return inflater.inflate(R.layout.fragment_help_center, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -56,7 +55,7 @@ class AboutUsFragment : BaseFragment() {
         baseActivity?.hideSoftKeyBoard()
         if (baseActivity?.isNetworkConnected()!!) {
             val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
-            val call = apiInterface.aboutUsApi()
+            val call = apiInterface.helpCenterApi()
             call.enqueue(object : Callback<AboutUsWrapper> {
                 override fun onResponse(
                     call: Call<AboutUsWrapper>?,

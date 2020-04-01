@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.how_about_now.app.R
-import com.how_about_now.app.adapter.FavouriteAdapter
+import com.how_about_now.app.adapter.MatchesAdapter
 import com.how_about_now.app.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_matches.*
 
@@ -33,7 +33,7 @@ class MatchesFragment : BaseFragment(), View.OnClickListener {
     private fun init() {
         matchesRV.layoutManager =
             GridLayoutManager(baseActivity!!, 2, RecyclerView.VERTICAL, false)
-        matchesRV.adapter = FavouriteAdapter(baseActivity!!)
+        matchesRV.adapter = MatchesAdapter(baseActivity!!)
 
     }
 

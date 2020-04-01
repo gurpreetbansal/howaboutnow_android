@@ -40,6 +40,9 @@ object AppConstants {
     val REQUEST_CODE = 99
     val STATUS_OK = 200
 
+    val LIKED_YOU = 1
+    val YOU_LIKED = 2
+    val MATCH = 3
 
 }
 
