@@ -17,9 +17,11 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.how_about_now.app.R
 import com.how_about_now.app.activity.MainActivity
+import com.how_about_now.app.data.near_by_me.LikeAndDisLikeEntity
 import com.how_about_now.app.data.near_by_me.NearByMeEntity
 import com.how_about_now.app.data.near_by_me.NearByMeMsg
 import com.how_about_now.app.data.near_by_me.NearByMeWrapper
+import com.how_about_now.app.data.profile_data.EditProfileWrapper
 import com.how_about_now.app.fragment.BaseFragment
 import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
@@ -45,6 +47,8 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
     private var lat: String? = ""
     private var longi: String? = ""
 
+    val spotsArrayList = ArrayList<Spot>()
+
     private var nearByMeMsgList = ArrayList<NearByMeMsg>()
     private val manager by lazy { CardStackLayoutManager(baseActivity!!, this) }
     private val adapter by lazy { CardStackAdapter(createSpots(), this) }
@@ -60,7 +64,6 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
         super.onViewCreated(view, savedInstanceState)
         (baseActivity as MainActivity).setToolbarVisibilityGone()
         init()
-        setupCardStackView()
     }
 
     private fun init() {
@@ -71,6 +74,8 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
             permissionsManager.requestLocationPermissions(activity)
         }
         PermissionCallBack.getInstance(baseActivity!!).setButtonListener(this)
+
+
     }
 
     private fun getCurrentLocation() {
@@ -79,6 +84,7 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
             .addOnSuccessListener { location: Location? ->
                 lat = location?.latitude.toString()
                 longi = location?.longitude.toString()
+                hitUserNearByMeApi()
             }
     }
 
@@ -268,87 +274,90 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
     private fun createSpot(): Spot {
         return Spot(
             name = "Yasaka Shrine",
+            userId = "7",
             city = "Kyoto",
             url = "https://source.unsplash.com/Xq1ntWruZQI/600x800"
         )
     }
 
     private fun createSpots(): List<Spot> {
-        val spots = ArrayList<Spot>()
-        spots.add(
-            Spot(
-                name = "Yasaka Shrine",
-                city = "Kyoto",
-                url = "https://source.unsplash.com/Xq1ntWruZQI/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Fushimi Inari Shrine",
-                city = "Kyoto",
-                url = "https://source.unsplash.com/NYyCqdBOKwc/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Bamboo Forest",
-                city = "Kyoto",
-                url = "https://source.unsplash.com/buF62ewDLcQ/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Brooklyn Bridge",
-                city = "New York",
-                url = "https://source.unsplash.com/THozNzxEP3g/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Empire State Building",
-                city = "New York",
-                url = "https://source.unsplash.com/USrZRcRS2Lw/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "The statue of Liberty",
-                city = "New York",
-                url = "https://source.unsplash.com/PeFk7fzxTdk/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Louvre Museum",
-                city = "Paris",
-                url = "https://source.unsplash.com/LrMWHKqilUw/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Eiffel Tower",
-                city = "Paris",
-                url = "https://source.unsplash.com/HN-5Z6AmxrM/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Big Ben",
-                city = "London",
-                url = "https://source.unsplash.com/CdVAUADdqEc/600x800"
-            )
-        )
-        spots.add(
-            Spot(
-                name = "Great Wall of China",
-                city = "China",
-                url = "https://source.unsplash.com/AWh9C-QjhE4/600x800"
-            )
-        )
-        return spots
+//        val spots = ArrayList<Spot>()
+//        spots.add(
+//            Spot(
+//                name = "Yasaka Shrine",
+//                city = "Kyoto",
+//                url = "https://source.unsplash.com/Xq1ntWruZQI/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Fushimi Inari Shrine",
+//                city = "Kyoto",
+//                url = "https://source.unsplash.com/NYyCqdBOKwc/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Bamboo Forest",
+//                city = "Kyoto",
+//                url = "https://source.unsplash.com/buF62ewDLcQ/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Brooklyn Bridge",
+//                city = "New York",
+//                url = "https://source.unsplash.com/THozNzxEP3g/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Empire State Building",
+//                city = "New York",
+//                url = "https://source.unsplash.com/USrZRcRS2Lw/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "The statue of Liberty",
+//                city = "New York",
+//                url = "https://source.unsplash.com/PeFk7fzxTdk/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Louvre Museum",
+//                city = "Paris",
+//                url = "https://source.unsplash.com/LrMWHKqilUw/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Eiffel Tower",
+//                city = "Paris",
+//                url = "https://source.unsplash.com/HN-5Z6AmxrM/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Big Ben",
+//                city = "London",
+//                url = "https://source.unsplash.com/CdVAUADdqEc/600x800"
+//            )
+//        )
+//        spots.add(
+//            Spot(
+//                name = "Great Wall of China",
+//                city = "China",
+//                url = "https://source.unsplash.com/AWh9C-QjhE4/600x800"
+//            )
+//        )
+        return spotsArrayList
     }
 
-    override fun onSkipButton() {
+    override fun onSkipButton(effective_user_id:String) {
+        hitLikeUnLikeApi(effective_user_id,AppConstants.PASS)
+
         val setting = SwipeAnimationSetting.Builder()
             .setDirection(Direction.Left)
             .setDuration(Duration.Normal.duration)
@@ -358,7 +367,7 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
         card_stack_view.swipe()
     }
 
-    override fun onRewindButton() {
+    override fun onRewindButton(effective_user_id:String) {
         val setting = RewindAnimationSetting.Builder()
             .setDirection(Direction.Bottom)
             .setDuration(Duration.Normal.duration)
@@ -368,7 +377,9 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
         card_stack_view.rewind()
     }
 
-    override fun onLikeButton() {
+    override fun onLikeButton(effective_user_id:String) {
+        hitLikeUnLikeApi(effective_user_id, AppConstants.LIKE)
+
         val setting = SwipeAnimationSetting.Builder()
             .setDirection(Direction.Right)
             .setDuration(Duration.Normal.duration)
@@ -378,15 +389,15 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
         card_stack_view.swipe()
     }
 
-    private fun hitLoginApi() {
-
+    private fun hitUserNearByMeApi() {
+        var userID = baseActivity!!.getProfileData().user_id
         baseActivity?.showLoading()
         baseActivity?.hideSoftKeyBoard()
         if (baseActivity?.isNetworkConnected()!!) {
             val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
             val call = apiInterface.userNearByMeApi(
                 NearByMeEntity(
-                    0, 0, lat!!, longi!!, "", "", ""
+                    50, 0, "30.3398", "76.3869", "", "female", userID.toString()
                 )
             )
             call.enqueue(object : Callback<NearByMeWrapper> {
@@ -401,6 +412,7 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
                     if (nearByMeWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
 
                         nearByMeMsgList.addAll(nearByMeWrapper!!.msg)
+                        setDiscoverData(nearByMeMsgList)
                     } else {
 //                        baseActivity?.showMessage(signUpWrapper!!.message)
                     }
@@ -417,4 +429,62 @@ class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.But
         }
 
     }
+
+    private fun setDiscoverData(nearByMeMsgList: java.util.ArrayList<NearByMeMsg>) {
+        for (i in 0 until nearByMeMsgList.size) {
+            spotsArrayList.add(
+                Spot(
+                    name = nearByMeMsgList.get(i).first_name,
+                    userId = nearByMeMsgList.get(i).effective_user_id,
+                    city = nearByMeMsgList.get(i).about_me,
+                    url = nearByMeMsgList.get(i).image1
+                )
+            )
+        }
+
+        setupCardStackView()
+
+    }
+
+
+    private fun hitLikeUnLikeApi(effectiveUserId: String, type: Int) {
+        var userID = baseActivity!!.getProfileData().user_id
+        baseActivity?.showLoading()
+        baseActivity?.hideSoftKeyBoard()
+        if (baseActivity?.isNetworkConnected()!!) {
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
+            val call = apiInterface.likeUnLikeApi(
+                LikeAndDisLikeEntity(
+                    effectiveUserId.toInt(), type.toString(), userID
+
+                )
+            )
+            call.enqueue(object : Callback<EditProfileWrapper> {
+                override fun onResponse(
+                    call: Call<EditProfileWrapper>?,
+                    response: Response<EditProfileWrapper>?
+                ) {
+                    baseActivity?.hideLoading()
+
+                    var editProfileWrapper = response?.body()
+
+                    if (editProfileWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
+                        baseActivity!!.showMessage(editProfileWrapper!!.msg.get(0).response)
+                    } else {
+//                        baseActivity?.showMessage(signUpWrapper!!.message)
+                    }
+                }
+
+                override fun onFailure(call: Call<EditProfileWrapper>?, t: Throwable?) {
+                    baseActivity?.hideLoading()
+                    baseActivity?.showMessage(t!!.localizedMessage)
+                }
+            })
+        } else {
+            baseActivity?.hideLoading()
+            baseActivity?.showMessage(getString(R.string.no_int_connection))
+        }
+
+    }
+
 }

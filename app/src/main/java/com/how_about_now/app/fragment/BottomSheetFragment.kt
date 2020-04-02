@@ -101,6 +101,7 @@ class BottomSheetFragment : BaseDialogFragment(), View.OnClickListener,
                     var intent = Intent(baseActivity, ImageCropperActivity::class.java)
                     intent.putExtra("imageUri", outputfileUri)
                     startActivity(intent)
+                    dismiss()
                 }
             }
         }
@@ -133,6 +134,7 @@ class BottomSheetFragment : BaseDialogFragment(), View.OnClickListener,
                     var intent = Intent(baseActivity, ImageCropperActivity::class.java)
                     intent.putExtra("imageUri", outputfileUri)
                     baseActivity!!.startActivity(intent)
+                    dismiss()
                 }
         }
     }

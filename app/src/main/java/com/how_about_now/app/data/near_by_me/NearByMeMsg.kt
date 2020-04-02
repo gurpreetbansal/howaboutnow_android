@@ -1,6 +1,7 @@
 package com.how_about_now.app.data.near_by_me
 
 data class NearByMeMsg(
+    val effective_user_id: String,
     val about_me: String,
     val job_title: String,
     val gender: String,

@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.how_about_now.app.R
+import com.how_about_now.app.data.notification_phase.GetNotificationMsg
+import com.how_about_now.app.data.notification_phase.GetNotificationWrapper
 import com.how_about_now.app.data.notification_phase.NotificationEntity
 import com.how_about_now.app.data.notification_phase.NotificationWrapper
+import com.how_about_now.app.data.profile_data.UserIdEntity
 import com.how_about_now.app.fragment.BaseFragment
 import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
@@ -45,6 +48,7 @@ class NotificationFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun init() {
+        hitGetNotificationStatusApi()
         backIV.setOnClickListener(this)
         submitBT.setOnClickListener(this)
         offersSW.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -96,13 +100,13 @@ class NotificationFragment : BaseFragment(), View.OnClickListener {
                 baseActivity!!.supportFragmentManager.popBackStack()
             }
             submitBT -> {
-                hitFeedbackApi()
+                hitEnableNotificationsApi()
             }
 
         }
     }
 
-    private fun hitFeedbackApi() {
+    private fun hitEnableNotificationsApi() {
         var msg = baseActivity!!.getProfileData()
         baseActivity?.showLoading()
         baseActivity?.hideSoftKeyBoard()
@@ -145,5 +149,80 @@ class NotificationFragment : BaseFragment(), View.OnClickListener {
             baseActivity?.showMessage(getString(R.string.no_int_connection))
         }
 
+    }
+
+    private fun hitGetNotificationStatusApi() {
+        var msg = baseActivity!!.getProfileData()
+        baseActivity?.showLoading()
+        baseActivity?.hideSoftKeyBoard()
+        if (baseActivity?.isNetworkConnected()!!) {
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "")
+            val call = apiInterface.getNotificationStatusApi(
+                UserIdEntity(msg.user_id)
+            )
+            call.enqueue(object : Callback<GetNotificationWrapper> {
+                override fun onResponse(
+                    call: Call<GetNotificationWrapper>?,
+                    response: Response<GetNotificationWrapper>?
+                ) {
+                    baseActivity?.hideLoading()
+                    var getNotificationWrapper = response?.body()
+                    if (getNotificationWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
+                        setNotificationData(getNotificationWrapper!!.msg)
+                    } else {
+//                        baseActivity?.showMessage(signUpWrapper!!.message)
+                    }
+                }
+
+                override fun onFailure(call: Call<GetNotificationWrapper>?, t: Throwable?) {
+                    baseActivity?.hideLoading()
+                    baseActivity?.log(t!!.localizedMessage)
+                }
+            })
+        } else {
+            baseActivity?.hideLoading()
+            baseActivity?.showMessage(getString(R.string.no_int_connection))
+        }
+
+    }
+
+    private fun setNotificationData(getNotificationArrayList: ArrayList<GetNotificationMsg>) {
+        if (getNotificationArrayList.get(0).offer_promotions_noti.toInt() == 1) {
+            offersSW.setChecked(true)
+        } else {
+            offersSW.setChecked(false)
+        }
+
+        if (getNotificationArrayList.get(0).friend_bday_noti.toInt() == 1) {
+            birthdaySW.setChecked(true)
+        } else {
+            birthdaySW.setChecked(true)
+        }
+        if (getNotificationArrayList.get(0).purchase_noti.toInt() == 1) {
+            purchaseSW.setChecked(true)
+        } else {
+            purchaseSW.setChecked(true)
+        }
+
+        if (getNotificationArrayList.get(0).like_noti.toInt() == 1) {
+            someOneLikeYouSW.setChecked(true)
+        } else {
+            someOneLikeYouSW.setChecked(true)
+        }
+        if (getNotificationArrayList.get(0).new_message_noti.toInt() == 1) {
+            getNewMessageSW.setChecked(true)
+        } else {
+            getNewMessageSW.setChecked(true)
+        }
+        if (getNotificationArrayList.get(0).match_noti.toInt() == 1) {
+            whenYouHaveNewMatchSW.setChecked(true)
+        } else {
+            whenYouHaveNewMatchSW.setChecked(true)
+        }
+        if (getNotificationArrayList.get(0).recommend_noti.toInt() == 1) {
+            whenYouGetNewRecommendationSW.setChecked(true)
+        } else {
+            whenYouGetNewRecommendationSW.setChecked(true)
+        }
     }
 }

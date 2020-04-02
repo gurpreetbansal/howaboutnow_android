@@ -31,13 +31,13 @@ class CardStackAdapter(
         }
 
         holder.skip_button.setOnClickListener {
-            buttonCallBack.onSkipButton()
+            buttonCallBack.onSkipButton(spot.userId)
         }
         holder.rewind_button.setOnClickListener {
-            buttonCallBack.onRewindButton()
+            buttonCallBack.onRewindButton(spot.userId)
         }
         holder.like_button.setOnClickListener {
-            buttonCallBack.onLikeButton()
+            buttonCallBack.onLikeButton(spot.userId)
         }
     }
 
@@ -64,9 +64,9 @@ class CardStackAdapter(
     }
 
     interface ButtonsCallBack {
-        fun onSkipButton()
-        fun onRewindButton()
-        fun onLikeButton()
+        fun onSkipButton(effective_user_id:String)
+        fun onRewindButton(effective_user_id:String)
+        fun onLikeButton(effective_user_id:String)
     }
 
 }

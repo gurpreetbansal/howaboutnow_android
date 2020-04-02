@@ -1,20 +1,26 @@
 package com.how_about_now.app.activity
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.text.TextUtils
 import android.util.Patterns
+import android.view.LayoutInflater
 import android.view.View
+import android.view.Window
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.how_about_now.app.R
 import com.how_about_now.app.data.login_phase.Msg
 import com.how_about_now.app.utils.*
 
@@ -26,9 +32,12 @@ import com.how_about_now.app.utils.*
 open class BaseActivity : AppCompatActivity() {
     var exit = false
     lateinit var store: PrefStore
+    private var progressDialog: Dialog? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CommonUtils.setDialog(this)
         store = PrefStore(this)
 
     }
@@ -131,11 +140,13 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun showLoading() {
-        CommonUtils.showProgressDialog(this)
+        showProgressDialog(this)
+//        CommonUtils.showProgressDialog(this)
     }
 
     fun hideLoading() {
-        CommonUtils.hideProgressDialog()
+        hideProgressDialog()
+//        CommonUtils.hideProgressDialog()
     }
 
     fun showMessage(message: String) {
@@ -185,5 +196,37 @@ open class BaseActivity : AppCompatActivity() {
 
     fun getProfileData(): Msg {
         return store.getObject("authData", Msg::class.java)!!
+    }
+
+    open fun showProgressDialog(context: Context?) {
+        hideProgressDialog()
+        if (progressDialog != null) {
+            progressDialog?.show()
+            return
+        }
+        progressDialog = Dialog(context!!, R.style.transparent_dialog_borderless)
+        val view = LayoutInflater.from(context).inflate(
+            R.layout.progress_dialog,
+            null,
+            false
+        )
+
+        //        View view = View.inflate(context, R.layout.progress_dialog, null);
+        progressDialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        progressDialog?.setContentView(view)
+        progressDialog?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        // txtMsgTV = (TextView) view.findViewById(R.id.txtMsgTV);
+        progressDialog?.setCancelable(false)
+        progressDialog?.show()
+    }
+
+    open fun hideProgressDialog() {
+        if (progressDialog != null && progressDialog!!.isShowing()) {
+            try {
+                progressDialog?.dismiss()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 }

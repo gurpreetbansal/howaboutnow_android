@@ -10,7 +10,7 @@ import com.how_about_now.app.utils.GalleryImageCallBack
 import com.theartofdev.edmodo.cropper.CropImage
 
 
-class ImageCropperActivity : BaseActivity()/*, GalleryImageCallBack.GalleryImageListener*/ {
+class ImageCropperActivity : BaseActivity(), GalleryImageCallBack.GalleryImageListener {
 
     private lateinit var imageUri: Uri
 
@@ -25,9 +25,9 @@ class ImageCropperActivity : BaseActivity()/*, GalleryImageCallBack.GalleryImage
             imageUri = intent.extras?.get("imageUri") as Uri
         }
         CropImage.activity(imageUri)
-            .start(this);
-//        GalleryImageCallBack.getInstance(this).setGalleryImageListener(this)
+            .start(this)
 
+        GalleryImageCallBack.getInstance(this).setGalleryImageListener(this)
 
     }
 
@@ -46,17 +46,7 @@ class ImageCropperActivity : BaseActivity()/*, GalleryImageCallBack.GalleryImage
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-//    override fun onGalleryImageCallBack(requestCode: Int, resultCode: Int, data: Intent?) {
-//        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-//            val result = CropImage.getActivityResult(data)
-//            if (resultCode == Activity.RESULT_OK) {
-//                val resultUri = result.uri
-//                BottomSheetImageCallBack.getInstance(this)
-//                    .onImageCallBackListener(null, null, resultUri)
-//                finish()
-//            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-//                val error = result.error
-//            }
-//        }
-//    }
+    override fun onGalleryImageCallBack(requestCode: Int, resultCode: Int, data: Intent?) {
+
+    }
 }

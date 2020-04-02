@@ -44,5 +44,11 @@ object AppConstants {
     val YOU_LIKED = 2
     val MATCH = 3
 
+    val PASS = 0
+    val LIKE = 1
+    val SUPERLIKE = 2
+
+
+
 }
 

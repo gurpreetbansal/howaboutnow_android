@@ -2,6 +2,7 @@ package com.how_about_now.app.fragment.card_stack
 
 data class Spot(
         val id: Long = counter++,
+        val userId: String,
         val name: String,
         val city: String,
         val url: String

@@ -6,18 +6,17 @@ import com.how_about_now.app.data.FeedbackWrapper
 import com.how_about_now.app.data.favoirite_phase.FavouriteEntity
 import com.how_about_now.app.data.favoirite_phase.FavouriteWrapper
 import com.how_about_now.app.data.login_phase.*
+import com.how_about_now.app.data.near_by_me.LikeAndDisLikeEntity
 import com.how_about_now.app.data.near_by_me.NearByMeEntity
 import com.how_about_now.app.data.near_by_me.NearByMeWrapper
+import com.how_about_now.app.data.notification_phase.GetNotificationWrapper
 import com.how_about_now.app.data.notification_phase.NotificationEntity
 import com.how_about_now.app.data.notification_phase.NotificationWrapper
 import com.how_about_now.app.data.profile_data.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Part
+import retrofit2.http.*
 
 
 interface ApiInterface {
@@ -33,6 +32,7 @@ interface ApiInterface {
     @POST("index.php?p=edit_profile")
     fun editProfileApi(@Body editProfileEntity: EditProfileEntity): Call<EditProfileWrapper>
 
+    @Multipart
     @POST("index.php?p=editImage")
     fun editImageApi(
         @Part("user_id") user_id: RequestBody,
@@ -68,6 +68,12 @@ interface ApiInterface {
 
     @POST("index.php?p=favourite")
     fun favouriteApi(@Body nearByMeEntity: FavouriteEntity): Call<FavouriteWrapper>
+
+    @POST("index.php?p=getNotiStatus")
+    fun getNotificationStatusApi(@Body userIdEntity: UserIdEntity): Call<GetNotificationWrapper>
+
+    @POST("index.php?p=like_unlike")
+    fun likeUnLikeApi(@Body likeAndDisLikeEntity: LikeAndDisLikeEntity): Call<EditProfileWrapper>
 
 
 //
