@@ -1,4 +1,4 @@
-package com.how_about_now.app.fragment.card_stack
+package com.how_about_now.app.fragment.home_phase
 
 import android.location.Location
 import android.os.Bundle
@@ -23,6 +23,9 @@ import com.how_about_now.app.data.near_by_me.NearByMeMsg
 import com.how_about_now.app.data.near_by_me.NearByMeWrapper
 import com.how_about_now.app.data.profile_data.EditProfileWrapper
 import com.how_about_now.app.fragment.BaseFragment
+import com.how_about_now.app.fragment.card_stack.CardStackAdapter
+import com.how_about_now.app.fragment.card_stack.Spot
+import com.how_about_now.app.fragment.card_stack.SpotDiffCallback
 import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
 import com.how_about_now.app.utils.AppConstants
@@ -38,7 +41,7 @@ import retrofit2.Response
 /**
  * A simple [Fragment] subclass.
  */
-class DiscoverFragment : BaseFragment(), CardStackListener, CardStackAdapter.ButtonsCallBack,
+class CardStackFragment : BaseFragment(), CardStackListener, CardStackAdapter.ButtonsCallBack,
     PermissionsListener,
     PermissionCallBack.PermissionListener {
 

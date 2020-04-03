@@ -126,7 +126,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:text="18-30 yr"
+                android:text="0-30 yr"
                 android:textSize="@dimen/_12sdp" />
 
         <com.how_about_now.app.utils.DiscreteSlider
@@ -183,7 +183,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:text="150-180 cm"
+                android:text="0-180 cm"
                 android:textSize="@dimen/_12sdp" />
 
         <com.how_about_now.app.utils.DiscreteSlider
@@ -195,9 +195,9 @@
                 android:focusable="true"
                 android:paddingStart="@dimen/_12sdp"
                 android:paddingEnd="@dimen/_12sdp"
-                app:ds_count="100"
+                app:ds_count="500"
                 app:ds_inactiveTrackColor="@color/gray_color"
-                app:ds_maxProgress="5"
+                app:ds_maxProgress="100"
                 app:ds_minProgress="0"
                 app:ds_mode="range"
                 app:ds_thumbColor="@color/button_light_color"
@@ -322,7 +322,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_10sdp"
-                android:text="20 km"
+                android:text="200 km"
                 android:textSize="@dimen/_12sdp" />
 
         <com.how_about_now.app.utils.DiscreteSlider
@@ -334,7 +334,7 @@
                 android:focusable="true"
                 android:paddingStart="@dimen/_12sdp"
                 android:paddingEnd="@dimen/_12sdp"
-                app:ds_count="100"
+                app:ds_count="1000"
                 app:ds_inactiveTrackColor="@color/gray_color"
                 app:ds_maxProgress="5"
                 app:ds_minProgress="0"

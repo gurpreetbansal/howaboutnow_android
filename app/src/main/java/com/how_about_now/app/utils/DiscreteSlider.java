@@ -35,6 +35,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.how_about_now.app.R;
+import com.how_about_now.app.fragment.home_phase.FilterFragment;
+
+import org.jetbrains.annotations.NotNull;
 
 public class DiscreteSlider extends View {
 
