@@ -53,13 +53,226 @@
                 android:background="@color/gray_color"
                 android:orientation="vertical"
                 tools:context=".app.fragment.home_phase.ProfileFragment">
-
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/profileRV"
+            <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white_color"
-                    android:padding="@dimen/_10sdp" />
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/profileOneCIV"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_default" />
+
+                    <ImageView
+                            android:id="@+id/addOneIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileOneCIV"
+                            android:layout_alignEnd="@+id/profileOneCIV"
+                            android:src="@drawable/ic_add_img" />
+
+                    <ImageView
+                            android:id="@+id/removeOneIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileOneCIV"
+                            android:layout_alignEnd="@+id/profileOneCIV"
+                            android:src="@drawable/ic_add_img"
+                            android:visibility="gone" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/profileTwoCIV"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_default" />
+
+                    <ImageView
+                            android:id="@+id/addTwoIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileTwoCIV"
+                            android:layout_alignEnd="@+id/profileTwoCIV"
+                            android:src="@drawable/ic_add_img" />
+
+                    <ImageView
+                            android:id="@+id/removeTwoIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileTwoCIV"
+                            android:layout_alignEnd="@+id/profileTwoCIV"
+                            android:src="@drawable/ic_add_img"
+                            android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/profileThreeCIV"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_default" />
+
+                    <ImageView
+                            android:id="@+id/addThreeIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileThreeCIV"
+                            android:layout_alignEnd="@+id/profileThreeCIV"
+                            android:src="@drawable/ic_add_img" />
+
+                    <ImageView
+                            android:id="@+id/removeThreeIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileThreeCIV"
+                            android:layout_alignEnd="@+id/profileThreeCIV"
+                            android:src="@drawable/ic_add_img"
+                            android:visibility="gone" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/profileFourCIV"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_default" />
+
+                    <ImageView
+                            android:id="@+id/addFourIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileFourCIV"
+                            android:layout_alignEnd="@+id/profileFourCIV"
+                            android:src="@drawable/ic_add_img" />
+
+                    <ImageView
+                            android:id="@+id/removeFourIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileFourCIV"
+                            android:layout_alignEnd="@+id/profileFourCIV"
+                            android:src="@drawable/ic_add_img"
+                            android:visibility="gone" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/profileFiveCIV"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_default" />
+
+                    <ImageView
+                            android:id="@+id/addFiveIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileFiveCIV"
+                            android:layout_alignEnd="@+id/profileFiveCIV"
+                            android:src="@drawable/ic_add_img" />
+
+                    <ImageView
+                            android:id="@+id/removeFiveIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileFiveCIV"
+                            android:layout_alignEnd="@+id/profileFiveCIV"
+                            android:src="@drawable/ic_add_img"
+                            android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/profileSixCIV"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:layout_centerHorizontal="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/ic_default" />
+
+                    <ImageView
+                            android:id="@+id/addSixIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileSixCIV"
+                            android:layout_alignEnd="@+id/profileSixCIV"
+                            android:src="@drawable/ic_add_img" />
+
+                    <ImageView
+                            android:id="@+id/removeSixIV"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_alignTop="@+id/profileSixCIV"
+                            android:layout_alignEnd="@+id/profileSixCIV"
+                            android:src="@drawable/ic_add_img"
+                            android:visibility="gone" />
+
+                </RelativeLayout>
+            </LinearLayout>
 
             <com.how_about_now.app.custom_views.SfRegulerTextView
                     android:id="@+id/reorderTV"
@@ -67,7 +280,6 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white_color"
                     android:gravity="end"
-                    android:visibility="gone"
                     android:padding="@dimen/_10sdp"
                     android:text="Drag to reorder"
                     android:textColor="@color/black_color"

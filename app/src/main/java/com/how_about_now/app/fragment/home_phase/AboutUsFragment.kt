@@ -14,6 +14,10 @@ import com.how_about_now.app.retrofit.ApiInterface
 import com.how_about_now.app.retrofit.ServiceGenerator
 import com.how_about_now.app.utils.AppConstants
 import kotlinx.android.synthetic.main.fragment_about_us.*
+import kotlinx.android.synthetic.main.fragment_about_us.backIV
+import kotlinx.android.synthetic.main.fragment_about_us.desTV
+import kotlinx.android.synthetic.main.fragment_about_us.titleTV
+import kotlinx.android.synthetic.main.fragment_help_center.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +26,7 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  *
  */
-class AboutUsFragment : BaseFragment() {
+class AboutUsFragment : BaseFragment(), View.OnClickListener {
 
     private var isMainActivity: Boolean? = false
 
@@ -49,6 +53,7 @@ class AboutUsFragment : BaseFragment() {
 
     private fun init() {
         hitAboutUsApi()
+        backIV.setOnClickListener(this)
     }
 
     private fun hitAboutUsApi() {
@@ -88,5 +93,13 @@ class AboutUsFragment : BaseFragment() {
             baseActivity?.showMessage(getString(R.string.no_int_connection))
         }
 
+    }
+
+    override fun onClick(v: View?) {
+        when(v){
+            backIV -> {
+                baseActivity!!.supportFragmentManager.popBackStack()
+            }
+        }
     }
 }

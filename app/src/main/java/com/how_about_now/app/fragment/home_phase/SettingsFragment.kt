@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.how_about_now.app.R
 import com.how_about_now.app.fragment.BaseFragment
+import com.how_about_now.app.utils.AppConstants
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 /**
@@ -39,6 +40,7 @@ class SettingsFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             logoutTV -> {
+                baseActivity!!.store.saveString(AppConstants.AUTH_TOKEN, "")
                 baseActivity!!.gotoLoginSignupActivity()
             }
             notificationTV -> {

@@ -22,7 +22,7 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  *
  */
-class HelpCenterFragment : BaseFragment() {
+class HelpCenterFragment : BaseFragment(), View.OnClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +47,8 @@ class HelpCenterFragment : BaseFragment() {
     }
 
     private fun init() {
+
+        backIV.setOnClickListener(this)
         hitAboutUsApi()
     }
 
@@ -87,5 +89,13 @@ class HelpCenterFragment : BaseFragment() {
             baseActivity?.showMessage(getString(R.string.no_int_connection))
         }
 
+    }
+
+    override fun onClick(v: View?) {
+        when (v) {
+            backIV -> {
+                baseActivity!!.supportFragmentManager.popBackStack()
+            }
+        }
     }
 }

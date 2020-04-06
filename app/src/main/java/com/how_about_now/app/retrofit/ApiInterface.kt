@@ -36,12 +36,12 @@ interface ApiInterface {
     @POST("index.php?p=editImage")
     fun editImageApi(
         @Part("user_id") user_id: RequestBody,
-        @Part image1: MultipartBody.Part,
-        @Part image2: MultipartBody.Part,
-        @Part image3: MultipartBody.Part,
-        @Part image4: MultipartBody.Part,
-        @Part image5: MultipartBody.Part,
-        @Part image6: MultipartBody.Part
+        @Part image1: MultipartBody.Part?,
+        @Part image2: MultipartBody.Part?,
+        @Part image3: MultipartBody.Part?,
+        @Part image4: MultipartBody.Part?,
+        @Part image5: MultipartBody.Part?,
+        @Part image6: MultipartBody.Part?
     ): Call<EditProfileWrapper>
 
     @POST("index.php?p=getUserInfo")
@@ -74,6 +74,9 @@ interface ApiInterface {
 
     @POST("index.php?p=like_unlike")
     fun likeUnLikeApi(@Body likeAndDisLikeEntity: LikeAndDisLikeEntity): Call<EditProfileWrapper>
+
+    @POST("index.php?p=getProfileInterest")
+    fun getProfileInterestApi(@Body userIdEntity: UserIdEntity): Call<ProfileInterestWrapper>
 
 
 //

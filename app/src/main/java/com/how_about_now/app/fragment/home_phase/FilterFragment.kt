@@ -10,7 +10,6 @@ import com.how_about_now.app.R
 import com.how_about_now.app.fragment.BaseFragment
 import com.how_about_now.app.fragment.GenderSelectionDialogFragment
 import com.how_about_now.app.utils.DiscreteSlider
-import com.how_about_now.app.utils.DiscreteSlider.MODE_NORMAL
 import com.how_about_now.app.utils.DiscreteSlider.OnValueChangedListener
 import com.how_about_now.app.utils.GenderSelectionCallBack
 import kotlinx.android.synthetic.main.fragment_filter.*
@@ -39,7 +38,7 @@ class FilterFragment : BaseFragment(), View.OnClickListener,
     @SuppressLint("SetTextI18n")
     private fun dataSet() {
         genderOptionTV.setText(baseActivity!!.store.getString("gender", "Female")!!)
-        distanceCalTV.setText(baseActivity!!.store.getString("distance", "50")!!+" "+"km")
+        distanceCalTV.setText(baseActivity!!.store.getString("distance", "50")!! + " " + "km")
         heightCalTV.setText(
             baseActivity!!.store.getString(
                 "heightMinimum",
@@ -82,6 +81,7 @@ class FilterFragment : BaseFragment(), View.OnClickListener,
 
     private fun init() {
 
+        backIV.setOnClickListener(this)
         genderOptionTV.setOnClickListener(this)
         GenderSelectionCallBack.getInstance(baseActivity!!).setGenderSelectionListener(this)
 
@@ -150,6 +150,9 @@ class FilterFragment : BaseFragment(), View.OnClickListener,
                     baseActivity!!.getSupportFragmentManager(),
                     genderSelectionDialogFragment.getTag()
                 )
+            }
+            backIV -> {
+                baseActivity!!.supportFragmentManager.popBackStack()
             }
         }
     }

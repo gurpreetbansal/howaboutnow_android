@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.how_about_now.app.R
 import com.how_about_now.app.data.notification_phase.GetNotificationMsg
@@ -54,43 +55,155 @@ class NotificationFragment : BaseFragment(), View.OnClickListener {
         offersSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 social = 1
-            } else social = 0
+                offersSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                offersSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+                social = 0
+            }
 
         }
         birthdaySW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 friendBirthday = 1
-            } else friendBirthday = 0
+                birthdaySW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                friendBirthday = 0
+                birthdaySW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
         purchaseSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 purchanse = 1
-            } else purchanse = 0
+                purchaseSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                purchanse = 0
+                purchaseSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
         someOneLikeYouSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 like = 1
-            } else like = 0
+                someOneLikeYouSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                like = 0
+                someOneLikeYouSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
         someVisitYourProfileSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 visitProfile = 1
-            } else visitProfile = 0
+                someVisitYourProfileSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                visitProfile = 0
+                someVisitYourProfileSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
         getNewMessageSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 newMessage = 1
-            } else newMessage = 0
+                getNewMessageSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                newMessage = 0
+                getNewMessageSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
         whenYouHaveNewMatchSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 newMatch = 1
-            } else newMatch = 0
+                whenYouHaveNewMatchSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                newMatch = 0
+                whenYouHaveNewMatchSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
         whenYouGetNewRecommendationSW.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 recommendation = 1
-            } else recommendation = 0
+                whenYouGetNewRecommendationSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom_track_bg
+                    )
+                )
+            } else {
+                recommendation = 0
+                whenYouGetNewRecommendationSW.setTrackDrawable(
+                    ContextCompat.getDrawable(
+                        baseActivity!!,
+                        R.drawable.custom__gray_track
+                    )
+                )
+            }
         }
     }
 
@@ -189,40 +302,142 @@ class NotificationFragment : BaseFragment(), View.OnClickListener {
     private fun setNotificationData(getNotificationArrayList: ArrayList<GetNotificationMsg>) {
         if (getNotificationArrayList.get(0).offer_promotions_noti.toInt() == 1) {
             offersSW.setChecked(true)
+            offersSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
             offersSW.setChecked(false)
+            offersSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
 
         if (getNotificationArrayList.get(0).friend_bday_noti.toInt() == 1) {
             birthdaySW.setChecked(true)
+            birthdaySW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
-            birthdaySW.setChecked(true)
+            birthdaySW.setChecked(false)
+            birthdaySW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
         if (getNotificationArrayList.get(0).purchase_noti.toInt() == 1) {
             purchaseSW.setChecked(true)
+            purchaseSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
-            purchaseSW.setChecked(true)
+            purchaseSW.setChecked(false)
+            purchaseSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
 
         if (getNotificationArrayList.get(0).like_noti.toInt() == 1) {
             someOneLikeYouSW.setChecked(true)
+            someOneLikeYouSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
-            someOneLikeYouSW.setChecked(true)
+            someOneLikeYouSW.setChecked(false)
+            someOneLikeYouSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
         if (getNotificationArrayList.get(0).new_message_noti.toInt() == 1) {
             getNewMessageSW.setChecked(true)
+            getNewMessageSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
-            getNewMessageSW.setChecked(true)
+            getNewMessageSW.setChecked(false)
+            getNewMessageSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
         if (getNotificationArrayList.get(0).match_noti.toInt() == 1) {
             whenYouHaveNewMatchSW.setChecked(true)
+            whenYouHaveNewMatchSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
-            whenYouHaveNewMatchSW.setChecked(true)
+            whenYouHaveNewMatchSW.setChecked(false)
+            whenYouHaveNewMatchSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
         if (getNotificationArrayList.get(0).recommend_noti.toInt() == 1) {
             whenYouGetNewRecommendationSW.setChecked(true)
+            whenYouGetNewRecommendationSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
         } else {
-            whenYouGetNewRecommendationSW.setChecked(true)
+            whenYouGetNewRecommendationSW.setChecked(false)
+            whenYouGetNewRecommendationSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
+        }
+        if (getNotificationArrayList.get(0).profile_visit_noti.toInt() == 1) {
+            someVisitYourProfileSW.setChecked(true)
+            someVisitYourProfileSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom_track_bg
+                )
+            )
+        } else {
+            someVisitYourProfileSW.setChecked(false)
+            someVisitYourProfileSW.setTrackDrawable(
+                ContextCompat.getDrawable(
+                    baseActivity!!,
+                    R.drawable.custom__gray_track
+                )
+            )
         }
     }
+
 }

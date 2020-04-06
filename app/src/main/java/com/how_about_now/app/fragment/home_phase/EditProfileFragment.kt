@@ -394,7 +394,7 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
         var questionFour = questionThreeTV.text.toString().trim()
 
         var questionDataArrayList = ArrayList<QuestionData>()
-        for (i in 0 until 3) {
+        for (i in 0 until 4) {
             when (i) {
                 0 -> {
                     var questionData = QuestionData("", 0)
@@ -621,12 +621,12 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
 
         return apiInterface.editImageApi(
             user_id,
-            image1!!,
-            image2!!,
-            image3!!,
-            image4!!,
-            image5!!,
-            image6!!
+            image1,
+            image2,
+            image3,
+            image4,
+            image5,
+            image6
         )
     }
 
@@ -697,47 +697,36 @@ class EditProfileFragment : BaseFragment(), View.OnClickListener,
         questionThreeTV.setText(getUserInfoMsg.user_answer[3].question)
         answerThreeET.setText(getUserInfoMsg.user_answer[3].answer.toString())
 
-        if (getUserInfoMsg.image1 != null && !getUserInfoMsg.image1.isEmpty()) {
+        if (!getUserInfoMsg.image1.isNotEmpty()) {
             Glide.with(baseActivity!!).load(getUserInfoMsg.image1).into(profileOneCIV)
         } else {
             profileOneCIV.setImageResource(R.drawable.ic_default)
         }
-        if (getUserInfoMsg.image2 != null && !getUserInfoMsg.image2.isEmpty()) {
+        if (!getUserInfoMsg.image2.isNotEmpty()) {
             Glide.with(baseActivity!!).load(getUserInfoMsg.image2).into(profileOneCIV)
         } else {
             profileOneCIV.setImageResource(R.drawable.ic_default)
         }
-        if (getUserInfoMsg.image3 != null && !getUserInfoMsg.image3.isEmpty()) {
+        if (!getUserInfoMsg.image3.isNotEmpty()) {
             Glide.with(baseActivity!!).load(getUserInfoMsg.image3).into(profileTwoCIV)
         } else {
             profileTwoCIV.setImageResource(R.drawable.ic_default)
         }
-        if (getUserInfoMsg.image4 != null && !getUserInfoMsg.image4.isEmpty()) {
+        if (!getUserInfoMsg.image4.isNotEmpty()) {
             Glide.with(baseActivity!!).load(getUserInfoMsg.image4).into(profileFourCIV)
         } else {
             profileFourCIV.setImageResource(R.drawable.ic_default)
         }
-        if (getUserInfoMsg.image5 != null && !getUserInfoMsg.image5.isEmpty()) {
+        if (!getUserInfoMsg.image5.isNotEmpty()) {
             Glide.with(baseActivity!!).load(getUserInfoMsg.image5).into(profileFiveCIV)
         } else {
             profileFiveCIV.setImageResource(R.drawable.ic_default)
         }
-        if (getUserInfoMsg.image6 != null && !getUserInfoMsg.image6.isEmpty()) {
+        if (!getUserInfoMsg.image6.isNotEmpty()) {
             Glide.with(baseActivity!!).load(getUserInfoMsg.image6).into(profileSixCIV)
         } else {
             profileSixCIV.setImageResource(R.drawable.ic_default)
         }
 
-//        profileImagesUriArrayList.add(getUserInfoMsg.image1)
-//        profileImagesUriArrayList.add(getUserInfoMsg.image2)
-//        profileImagesUriArrayList.add(getUserInfoMsg.image3)
-//        profileImagesUriArrayList.add(getUserInfoMsg.image4)
-//        profileImagesUriArrayList.add(getUserInfoMsg.image5)
-//        profileImagesUriArrayList.add(getUserInfoMsg.image6)
-//        editProfileAdapter = EditProfileAdapter(baseActivity!!, this, profileImagesUriArrayList)
-//        val callback: ItemTouchHelper.Callback = ItemMoveCallback(editProfileAdapter)
-//        val touchHelper = ItemTouchHelper(callback)
-//        touchHelper.attachToRecyclerView(profileRV)
-//        profileRV.adapter = editProfileAdapter
     }
 }

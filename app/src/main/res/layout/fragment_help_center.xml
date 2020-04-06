@@ -24,7 +24,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:padding="@dimen/_10sdp"
-                android:text="About Us"
+                android:text="Help"
                 android:textColor="@android:color/black" />
     </RelativeLayout>
 

@@ -41,9 +41,10 @@ class ProfileAdapter(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        if (userImagesArrayList!![position] != null && !userImagesArrayList!![position].isEmpty()) {
+        if (!userImagesArrayList!![position].isNotEmpty()) {
             Glide.with(baseActivity!!)
                 .load(userImagesArrayList!![position])
+                .thumbnail(0.1f)
                 .into(holder.profileCIV)
         } else {
             holder.profileCIV.setImageResource(R.drawable.ic_default)

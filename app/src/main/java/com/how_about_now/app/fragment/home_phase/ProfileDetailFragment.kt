@@ -10,13 +10,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.how_about_now.app.R
 import com.how_about_now.app.adapter.*
 import com.how_about_now.app.data.DrawerData
+import com.how_about_now.app.data.profile_data.ProfileInterestMsg
+import com.how_about_now.app.data.profile_data.ProfileInterestWrapper
+import com.how_about_now.app.data.profile_data.UserIdEntity
 import com.how_about_now.app.fragment.BaseFragment
+import com.how_about_now.app.retrofit.ApiInterface
+import com.how_about_now.app.retrofit.ServiceGenerator
+import com.how_about_now.app.utils.AppConstants
 import kotlinx.android.synthetic.main.fragment_profile_detail.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
  */
 class ProfileDetailFragment : BaseFragment() {
+
+    var profileInterestArrayList = ArrayList<ProfileInterestMsg>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,4 +78,41 @@ class ProfileDetailFragment : BaseFragment() {
         televisionRV.adapter = TelevisionAdapter(baseActivity!!, giftsArrayList)
     }
 
+    private fun hitProfileInterestApi() {
+        var msg = baseActivity!!.getProfileData()
+        baseActivity?.showLoading()
+        baseActivity?.hideSoftKeyBoard()
+        if (baseActivity?.isNetworkConnected()!!) {
+            val apiInterface = ServiceGenerator.createService(ApiInterface::class.java, "abcTest")
+            val call = apiInterface.getProfileInterestApi(
+                UserIdEntity(msg.user_id)
+            )
+            call.enqueue(object : Callback<ProfileInterestWrapper> {
+                override fun onResponse(
+                    call: Call<ProfileInterestWrapper>?,
+                    response: Response<ProfileInterestWrapper>?
+                ) {
+                    baseActivity?.hideLoading()
+
+                    var profileInterestWrapper = response?.body()
+
+                    if (profileInterestWrapper?.code.equals(AppConstants.STATUS_OK.toString())) {
+
+                        profileInterestArrayList.addAll(profileInterestWrapper!!.msg)
+                    } else {
+//                        baseActivity?.showMessage(signUpWrapper!!.message)
+                    }
+                }
+
+                override fun onFailure(call: Call<ProfileInterestWrapper>?, t: Throwable?) {
+                    baseActivity?.hideLoading()
+                    baseActivity?.showMessage(t!!.localizedMessage)
+                }
+            })
+        } else {
+            baseActivity?.hideLoading()
+            baseActivity?.showMessage(getString(R.string.no_int_connection))
+        }
+
+    }
 }

@@ -27,9 +27,9 @@ class SplashActivity : BaseActivity() {
 
     private fun init() {
         Handler().postDelayed({
-            if (store != null && store.getString(AppConstants.AUTH_TOKEN) != null && !store.getString(
+            if (store.getString(AppConstants.AUTH_TOKEN) != null && store.getString(
                     AppConstants.AUTH_TOKEN
-                )!!.isEmpty()
+                )!!.isNotEmpty()
             ) {
                 startActivity(Intent(this, MainActivity::class.java))
             } else startActivity(Intent(this, WelcomeActivity::class.java))
